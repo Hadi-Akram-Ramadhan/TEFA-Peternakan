@@ -87,6 +87,34 @@
             gap: 2rem;
         }
         
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
         .nav-link {
             color: var(--text-dark);
             text-decoration: none;
@@ -283,17 +311,14 @@
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--primary-color);
             animation: fadeInUp 1s ease-out;
         }
         
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: #666;
+            color: var(--text-dark);
             margin-bottom: 3rem;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
@@ -385,7 +410,7 @@
         .product-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
         
         .product-card h3 {
@@ -430,7 +455,7 @@
         .service-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
         /* Contact Section */
         
@@ -463,7 +488,7 @@
         .contact-icon {
             font-size: 1.5rem;
             margin-right: 1rem;
-            color: var(--accent-color);
+            color: var(--primary-color);
         }
         
         .contact-form {
@@ -537,11 +562,38 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Mobile Menu */
+        
+        .nav-menu.mobile-active {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: var(--bg-white);
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 2rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+        
+        .nav-menu.mobile-active .nav-link {
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            width: 80%;
+            text-align: center;
+        }
         /* Responsive Design */
         
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
+            }
+            .hamburger {
+                display: flex;
             }
             .hero h1 {
                 font-size: 2.5rem;
@@ -615,13 +667,18 @@
             <a href="#" class="logo">
                 <i class="fas fa-cow"></i> Peternakan Polije
             </a>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Beranda</a></li>
                 <li><a href="#about" class="nav-link">Tentang</a></li>
                 <li><a href="#products" class="nav-link">Produk</a></li>
                 <li><a href="#services" class="nav-link">Layanan</a></li>
                 <li><a href="#contact" class="nav-link">Kontak</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -882,6 +939,31 @@
             e.preventDefault();
             alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
             this.reset();
+        });
+
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('mobile-active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('mobile-active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('mobile-active');
+            }
         });
 
         // Add some interactive effects
