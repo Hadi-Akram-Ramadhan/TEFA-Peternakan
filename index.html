@@ -17,14 +17,17 @@
          :root {
             --primary-color: #2c5530;
             --secondary-color: #4a7c59;
-            --accent-color: #8fbc8f;
+            --accent-color: #6b8e6b;
             --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            --gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --text-light: #ffffff;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-gray: #f1f3f4;
+            --gradient-1: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            --gradient-2: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --gradient-3: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
+            --gradient-4: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            --gradient-5: linear-gradient(135deg, #6b8e6b 0%, #8fbc8f 100%);
         }
         
         body {
@@ -44,15 +47,16 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(44, 85, 48, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
             padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
         
         .navbar.scrolled {
-            background: rgba(44, 85, 48, 0.98);
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
         
@@ -68,7 +72,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--primary-color);
             text-decoration: none;
             transition: all 0.3s ease;
         }
@@ -84,7 +88,7 @@
         }
         
         .nav-link {
-            color: var(--text-light);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -114,7 +118,7 @@
         
         .hero {
             height: 100vh;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -129,7 +133,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%232c5530" stop-opacity="0.1"/><stop offset="100%" stop-color="%232c5530" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
             animation: float 20s ease-in-out infinite;
         }
         
@@ -145,7 +149,7 @@
         
         .hero-content {
             text-align: center;
-            color: white;
+            color: var(--text-dark);
             z-index: 2;
             position: relative;
             animation: fadeInUp 1s ease-out;
@@ -209,7 +213,7 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: bounceIn 1s ease-out 1s both;
         }
         
@@ -241,7 +245,7 @@
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            color: white;
+            color: var(--text-dark);
             font-size: 2rem;
             animation: bounce 2s infinite;
         }
@@ -296,7 +300,7 @@
         /* About Section */
         
         .about {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--bg-white);
         }
         
         .about-content {
@@ -351,8 +355,8 @@
         /* Products Section */
         
         .products {
-            background: var(--gradient-2);
-            color: white;
+            background: var(--bg-light);
+            color: var(--text-dark);
         }
         
         .products-grid {
@@ -363,20 +367,19 @@
         }
         
         .product-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: var(--bg-white);
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 1s ease-out;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .product-icon {
@@ -397,8 +400,8 @@
         /* Services Section */
         
         .services {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--bg-white);
+            color: var(--text-dark);
         }
         
         .services-grid {
@@ -409,19 +412,19 @@
         }
         
         .service-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: var(--bg-light);
             border-radius: 15px;
             padding: 2rem;
             text-align: center;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             animation: fadeInUp 1s ease-out;
         }
         
         .service-card:hover {
             transform: translateY(-5px) scale(1.02);
-            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
         .service-icon {
@@ -432,8 +435,8 @@
         /* Contact Section */
         
         .contact {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
+            background: var(--bg-light);
+            color: var(--text-dark);
         }
         
         .contact-content {
@@ -452,9 +455,9 @@
             align-items: center;
             margin-bottom: 1.5rem;
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--bg-white);
             border-radius: 10px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .contact-icon {
@@ -481,17 +484,16 @@
         .form-group textarea {
             width: 100%;
             padding: 1rem;
-            border: none;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--bg-white);
+            color: var(--text-dark);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            color: #999;
         }
         
         .submit-btn {
@@ -513,10 +515,11 @@
         /* Footer */
         
         .footer {
-            background: var(--primary-color);
-            color: var(--text-light);
+            background: var(--bg-white);
+            color: var(--text-dark);
             text-align: center;
             padding: 2rem 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
         
         .footer p {
@@ -567,7 +570,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
             display: flex;
             justify-content: center;
             align-items: center;
