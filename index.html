@@ -35,6 +35,8 @@
             line-height: 1.6;
             color: var(--text-dark);
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
         }
         /* Smooth scrolling */
         
@@ -206,6 +208,8 @@
             margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             animation: slideInLeft 1s ease-out 0.5s both;
+            word-wrap: break-word;
+            hyphens: auto;
         }
         
         @keyframes slideInLeft {
@@ -329,6 +333,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .section-title {
@@ -678,6 +684,9 @@
         /* Responsive Design */
         
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
             .nav-menu {
                 display: none;
                 transform: translateX(-100%);
@@ -689,23 +698,106 @@
             .hamburger {
                 display: flex;
             }
+            .hero {
+                padding: 0 1rem;
+            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 1rem;
             }
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+            .section {
+                padding: 3rem 0;
+            }
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
             }
             .about-content,
             .contact-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            .section-title {
-                font-size: 2.5rem;
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+            .about-text p {
+                font-size: 1rem;
+            }
+            .about-image img {
+                height: 250px;
             }
             .products-grid,
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .product-card,
+            .service-card {
+                padding: 1.5rem;
+            }
+            .product-icon,
+            .service-icon {
+                font-size: 2rem;
+            }
+            .product-card h3,
+            .service-card h3 {
+                font-size: 1.2rem;
+            }
+            .contact-item {
+                padding: 0.8rem;
+                margin-bottom: 1rem;
+            }
+            .contact-item h4 {
+                font-size: 1rem;
+            }
+            .contact-item p {
+                font-size: 0.9rem;
+            }
+            .form-group input,
+            .form-group textarea {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+            .submit-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .product-card,
+            .service-card {
+                padding: 1rem;
+            }
+            .nav-menu.mobile-active .nav-link {
+                font-size: 1.2rem;
+                padding: 1rem 0;
             }
         }
         /* Loading Animation */
