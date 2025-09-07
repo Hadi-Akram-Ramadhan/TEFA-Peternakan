@@ -99,30 +99,34 @@ document.addEventListener('keydown', function(e) {
 
 // Add some interactive effects
 document.querySelectorAll('.product-card, .service-card, .gallery-item').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+    if (window.innerWidth > 768) {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
+            const rotateX = ((y - centerY) / centerY) * -5;
+            const rotateY = ((x - centerX) / centerX) * 5;
 
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-    });
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    }
 });
 
 // Parallax effect for hero section background
 window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+    if (window.innerWidth > 768) {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+    }
 });
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(button => {
