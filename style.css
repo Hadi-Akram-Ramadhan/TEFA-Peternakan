@@ -812,9 +812,9 @@ html {
         padding: 0 1rem;
     }
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
         line-height: 1.3;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
     .hero p {
         font-size: 1rem;
@@ -832,8 +832,8 @@ html {
         padding: 3rem 0;
     }
     .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
     }
     .section-subtitle {
         font-size: 1rem;
@@ -861,7 +861,7 @@ html {
     }
     .product-card,
     .service-card {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
     }
     .product-icon,
     .service-icon {
@@ -894,13 +894,13 @@ html {
 
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .hero p {
         font-size: 0.9rem;
     }
     .section-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .product-card,
     .service-card {
