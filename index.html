@@ -5,15 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peternakan Sapi Perah & Potong Polije - Teaching Factory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
          :root {
             --primary-color: #2c5530;
             --secondary-color: #4a7c59;
@@ -23,25 +19,27 @@
             --bg-white: #ffffff;
             --bg-light: #f8f9fa;
             --bg-gray: #f1f3f4;
-            --gradient-1: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            --gradient-2: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            --gradient-3: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
-            --gradient-4: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
-            --gradient-5: linear-gradient(135deg, #6b8e6b 0%, #8fbc8f 100%);
+            --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+        
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
+            background-color: var(--bg-white);
             overflow-x: hidden;
-            width: 100%;
-            max-width: 100vw;
-        }
-        /* Smooth scrolling */
-        
-        html {
-            scroll-behavior: smooth;
         }
         /* Navigation */
         
@@ -49,17 +47,18 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid transparent;
         }
         
         .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .nav-container {
@@ -69,16 +68,14 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
-            position: relative;
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
-            transition: all 0.3s ease;
-            z-index: 1001;
+            transition: transform 0.3s ease;
         }
         
         .logo:hover {
@@ -88,58 +85,22 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
-            position: relative;
-        }
-        
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 3px 0;
-            transition: 0.3s;
-            border-radius: 2px;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
+            gap: 2.5rem;
         }
         
         .nav-link {
             color: var(--text-dark);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             position: relative;
-        }
-        
-        .nav-link:hover {
-            color: var(--accent-color);
-            transform: translateY(-2px);
+            padding-bottom: 0.5rem;
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -147,393 +108,317 @@
             transition: width 0.3s ease;
         }
         
-        .nav-link:hover::after {
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent-color);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
             width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease-in-out;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
         }
         /* Hero Section */
         
         .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%232c5530" stop-opacity="0.1"/><stop offset="100%" stop-color="%232c5530" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
             }
             50% {
-                transform: translateY(-20px) rotate(180deg);
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
             }
         }
         
         .hero-content {
-            text-align: center;
-            color: var(--text-dark);
             z-index: 2;
-            position: relative;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            max-width: 800px;
         }
         
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: slideInLeft 1s ease-out 0.5s both;
-            word-wrap: break-word;
-            hyphens: auto;
+            line-height: 1.2;
+            color: var(--text-light);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
         }
         
-        @keyframes slideInLeft {
-            from {
+        @keyframes text-focus-in {
+            0% {
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
                 opacity: 0;
-                transform: translateX(-100px);
             }
-            to {
+            100% {
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
                 opacity: 1;
-                transform: translateX(0);
             }
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
             margin-bottom: 2rem;
+            color: var(--text-light);
             opacity: 0.9;
-            animation: slideInRight 1s ease-out 0.7s both;
-        }
-        
-        @keyframes slideInRight {
-            0% {
-                opacity: 0;
-                transform: translateX(120px) scale(0.9);
-            }
-            50% {
-                opacity: 0.8;
-                transform: translateX(20px) scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
+            animation: text-focus-in 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) 0.2s both;
         }
         
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--gradient-4);
+            padding: 0.8rem 2.5rem;
+            background: var(--gradient-primary);
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: bounceIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) 1.2s both;
-        }
-        
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3) translateY(30px);
-            }
-            30% {
-                opacity: 0.8;
-                transform: scale(0.8) translateY(-10px);
-            }
-            50% {
-                transform: scale(1.1) translateY(5px);
-            }
-            70% {
-                transform: scale(0.95) translateY(-2px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 20px rgba(44, 85, 48, 0.2);
         }
         
         .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(44, 85, 48, 0.3);
         }
-        /* Scroll indicator */
         
         .scroll-indicator {
             position: absolute;
             bottom: 2rem;
             left: 50%;
             transform: translateX(-50%);
-            color: var(--text-dark);
             font-size: 2rem;
-            animation: bounce 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .scroll-indicator:hover {
-            transform: translateX(-50%) scale(1.2);
-            color: var(--accent-color);
+            color: var(--text-light);
+            animation: bounce 2s infinite;
         }
         
         @keyframes bounce {
-            0% {
-                transform: translateX(-50%) translateY(0) scale(1);
-            }
-            20% {
-                transform: translateX(-50%) translateY(-5px) scale(1.05);
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
             }
             40% {
-                transform: translateX(-50%) translateY(-15px) scale(1.1);
+                transform: translateX(-50%) translateY(-20px);
             }
             60% {
-                transform: translateX(-50%) translateY(-8px) scale(1.05);
-            }
-            80% {
-                transform: translateX(-50%) translateY(-3px) scale(1.02);
-            }
-            100% {
-                transform: translateX(-50%) translateY(0) scale(1);
+                transform: translateX(-50%) translateY(-10px);
             }
         }
         /* Section Styles */
         
         .section {
-            padding: 5rem 0;
-            position: relative;
+            padding: 6rem 0;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            width: 100%;
-            box-sizing: border-box;
         }
         
         .section-title {
             text-align: center;
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--primary-color);
-            animation: fadeInUp 1s ease-out;
         }
         
         .section-subtitle {
             text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-bottom: 3rem;
-            animation: fadeInUp 1s ease-out 0.2s both;
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         /* About Section */
-        
-        .about {
-            background: var(--bg-white);
-        }
         
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            margin-top: 3rem;
-        }
-        
-        .about-text {
-            animation: slideInLeft 1s ease-out;
         }
         
         .about-text h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
         }
         
         .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
             margin-bottom: 1.5rem;
             color: #555;
         }
         
-        .about-image {
-            position: relative;
-            animation: slideInRight 1s ease-out;
-        }
-        
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            background: var(--gradient-3);
-            border-radius: 20px;
-            z-index: -1;
-        }
-        
         .about-image img {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
-        /* Products Section */
+        /* Products & Services Section */
         
-        .products {
-            background: var(--bg-light);
-            color: var(--text-dark);
-        }
-        
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .product-card {
-            background: var(--bg-white);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .product-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-        
-        .product-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .product-card p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-        /* Services Section */
-        
+        .products,
         .services {
-            background: var(--bg-white);
-            color: var(--text-dark);
+            position: relative;
+            overflow: hidden;
         }
         
+        .products::before,
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(110deg, var(--bg-light) 40%, rgba(0, 0, 0, 0.03) 50%, var(--bg-light) 60%);
+            animation: shimmer 20s linear infinite;
+            z-index: 0;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .products-grid,
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
         }
         
+        .product-card,
         .service-card {
-            background: var(--bg-light);
+            background: var(--bg-white);
             border-radius: 15px;
             padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transform-style: preserve-3d;
         }
         
+        .product-card:hover,
         .service-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
+        .product-icon,
         .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-icon,
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .product-card h3,
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
         /* Contact Section */
-        
-        .contact {
-            background: var(--bg-light);
-            color: var(--text-dark);
-        }
         
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            margin-top: 3rem;
-        }
-        
-        .contact-info {
-            animation: slideInLeft 1s ease-out;
+            align-items: flex-start;
         }
         
         .contact-item {
             display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: var(--bg-white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            align-items: flex-start;
+            margin-bottom: 2rem;
         }
         
         .contact-icon {
             font-size: 1.5rem;
-            margin-right: 1rem;
+            margin-right: 1.5rem;
             color: var(--primary-color);
+            width: 30px;
+            text-align: center;
         }
         
-        .contact-form {
-            animation: slideInRight 1s ease-out;
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-item p {
+            color: #555;
+            line-height: 1.5;
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            position: relative;
+            margin-bottom: 2.5rem;
         }
         
         .form-group input,
@@ -541,265 +426,191 @@
         .form-group select {
             width: 100%;
             padding: 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            background: var(--bg-white);
-            color: var(--text-dark);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-bottom: 2px solid #ddd;
+            background: transparent;
             font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+            font-size: 1rem;
         }
         
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            color: #999;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus+label,
+        .form-group input:not(:placeholder-shown)+label,
+        .form-group textarea:focus+label,
+        .form-group textarea:not(:placeholder-shown)+label,
+        .form-group select:focus+label,
+        .form-group select:valid+label {
+            top: -1.2rem;
+            left: 0;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+        }
+        
+        .form-group select {
             color: #999;
         }
         
+        .form-group select:valid {
+            color: var(--text-dark);
+        }
+        
         .submit-btn {
-            background: var(--gradient-4);
+            background: var(--gradient-primary);
             color: white;
             padding: 1rem 2rem;
             border: none;
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 100%;
+            font-size: 1rem;
         }
         
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(44, 85, 48, 0.2);
+        }
+        /* FAQ Section */
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--bg-white);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            cursor: pointer;
+            background: var(--bg-white);
+        }
+        
+        .faq-question h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), padding 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            padding: 0 1.5rem;
+        }
+        
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            /* Adjust as needed */
         }
         /* Footer */
         
         .footer {
-            background: var(--bg-white);
-            color: var(--text-dark);
+            background: var(--bg-gray);
+            color: #555;
             text-align: center;
             padding: 2rem 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #e9ecef;
         }
-        
-        .footer p {
-            opacity: 0.8;
-        }
-        /* Animations */
+        /* Animations on Scroll */
         
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
         
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        /* Mobile Menu */
-        
-        .nav-menu.mobile-active {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: var(--bg-white);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transform: translateX(0);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: slideInFromRight 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .nav-menu.mobile-active .nav-link {
-            padding: 1.5rem 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            width: 80%;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
-        }
-        
-        .nav-menu.mobile-active .nav-link:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        
-        .nav-menu.mobile-active .nav-link:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .nav-menu.mobile-active .nav-link:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-        
-        .nav-menu.mobile-active .nav-link:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-        
-        .nav-menu.mobile-active .nav-link:nth-child(5) {
-            animation-delay: 0.5s;
-        }
-        
-        .nav-menu.mobile-active .nav-link:hover {
-            color: var(--primary-color);
-            transform: translateX(15px) scale(1.05);
-            background: rgba(44, 85, 48, 0.05);
-            border-radius: 10px;
-        }
-        /* Mobile Menu Overlay */
-        
-        .mobile-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(5px);
-        }
-        
-        .mobile-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        @keyframes slideInFromRight {
-            0% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
         /* Responsive Design */
         
-        @media (max-width: 768px) {
-            .nav-container {
-                padding: 0 1rem;
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .nav-menu {
                 display: none;
-                transform: translateX(-100%);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.3s ease-in-out;
             }
             .nav-menu.mobile-active {
                 display: flex;
                 transform: translateX(0);
             }
+            .nav-menu li {
+                margin: 1.5rem 0;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+            .nav-link {
+                font-size: 1.5rem;
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+            }
             .hamburger {
-                display: flex;
-            }
-            .hero {
-                padding: 0 1rem;
-            }
-            .hero h1 {
-                font-size: 2rem;
-                line-height: 1.2;
-                margin-bottom: 1rem;
-            }
-            .hero p {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-                padding: 0 1rem;
-            }
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-            .container {
-                padding: 0 1rem;
+                display: block;
             }
             .section {
-                padding: 3rem 0;
-            }
-            .section-title {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .about-text h3 {
-                font-size: 1.5rem;
-            }
-            .about-text p {
-                font-size: 1rem;
-            }
-            .about-image img {
-                height: 250px;
-            }
-            .products-grid,
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .product-card,
-            .service-card {
-                padding: 1.5rem;
-            }
-            .product-icon,
-            .service-icon {
-                font-size: 2rem;
-            }
-            .product-card h3,
-            .service-card h3 {
-                font-size: 1.2rem;
-            }
-            .contact-item {
-                padding: 0.8rem;
-                margin-bottom: 1rem;
-            }
-            .contact-item h4 {
-                font-size: 1rem;
-            }
-            .contact-item p {
-                font-size: 0.9rem;
-            }
-            .form-group input,
-            .form-group textarea {
-                padding: 0.8rem;
-                font-size: 1rem;
-            }
-            .submit-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 0.9rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .product-card,
-            .service-card {
-                padding: 1rem;
-            }
-            .nav-menu.mobile-active .nav-link {
-                font-size: 1.2rem;
-                padding: 1rem 0;
+                padding: 4rem 0;
             }
         }
         /* Loading Animation */
@@ -810,33 +621,30 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #2c5530 0%, #4a7c59 100%);
+            background: var(--primary-color);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
         }
         
         .loading.hidden {
             opacity: 0;
-            pointer-events: none;
+            visibility: hidden;
         }
         
         .spinner {
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
         
         @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
+            to {
                 transform: rotate(360deg);
             }
         }
@@ -860,6 +668,7 @@
                 <li><a href="#about" class="nav-link">Tentang</a></li>
                 <li><a href="#products" class="nav-link">Produk</a></li>
                 <li><a href="#services" class="nav-link">Layanan</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-link">Kontak</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -870,34 +679,29 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-overlay" id="mobile-overlay"></div>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
+        <div class="hero-content fade-in">
             <h1>Peternakan Sapi Perah & Potong Polije</h1>
-            <p>Teaching Factory yang menghadirkan produk berkualitas tinggi dengan standar modern dan edukasi terbaik untuk mahasiswa</p>
+            <p>Teaching Factory yang menghadirkan produk berkualitas tinggi dengan standar modern dan edukasi terbaik untuk mahasiswa.</p>
             <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
         </div>
-        <div class="scroll-indicator">
+        <a href="#about" class="scroll-indicator" aria-label="Scroll to about section">
             <i class="fas fa-chevron-down"></i>
-        </div>
+        </a>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
             <h2 class="section-title fade-in">Tentang Kami</h2>
-            <p class="section-subtitle fade-in">Teaching Factory yang mengintegrasikan pendidikan, penelitian, dan produksi peternakan</p>
+            <p class="section-subtitle fade-in">Mengintegrasikan pendidikan, penelitian, dan produksi peternakan modern.</p>
 
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h3>Sejarah & Visi Kami</h3>
-                    <p>Peternakan Sapi Perah dan Potong Polije dimulai sebagai inisiatif Jurusan Peternakan Politeknik Negeri Jember. Awalnya dibangun untuk keperluan akademik, kemudian berkembang menjadi Teaching Factory yang mengintegrasikan pendidikan,
-                        penelitian, dan produksi.</p>
-                    <p>Selain fokus pada produksi dan bisnis, kami juga berkomitmen untuk pendidikan serta membuka lapangan pekerjaan bagi warga sekitar. Peternakan kami memiliki kapasitas 30-40 ekor sapi per siklus dengan fasilitas yang lengkap dan modern.</p>
-                    <p>Sebagai Teaching Factory, kami menyediakan fasilitas pembelajaran yang mendukung mahasiswa untuk praktik langsung, mencoba teknologi terbaru, dan tidak hanya belajar teori di kelas.</p>
+                    <p>Berawal dari inisiatif Jurusan Peternakan Politeknik Negeri Jember, peternakan kami berkembang menjadi Teaching Factory terintegrasi yang menjadi pusat pembelajaran, riset, dan produksi.</p>
+                    <p>Kami berkomitmen pada pendidikan, pemberdayaan masyarakat, dan penyediaan produk peternakan berkualitas. Dengan kapasitas 30-40 ekor sapi per siklus dan fasilitas modern, kami menjadi laboratorium hidup bagi mahasiswa.</p>
                 </div>
                 <div class="about-image fade-in">
                     <img src="https://images.unsplash.com/photo-1544966503-7cc4bbbc0f4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Peternakan Modern">
@@ -909,40 +713,40 @@
     <!-- Products Section -->
     <section id="products" class="section products">
         <div class="container">
-            <h2 class="section-title fade-in">Produk Kami</h2>
-            <p class="section-subtitle fade-in">Produk berkualitas tinggi hasil Teaching Factory yang terintegrasi</p>
+            <h2 class="section-title fade-in">Produk Unggulan</h2>
+            <p class="section-subtitle fade-in">Kualitas terbaik dari peternakan yang dikelola secara profesional dan edukatif.</p>
 
             <div class="products-grid">
                 <div class="product-card fade-in">
                     <div class="product-icon">
-                        <i class="fas fa-glass-whiskey"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                     </div>
                     <h3>Susu Segar</h3>
-                    <p>Susu segar berkualitas unggulan yang dihasilkan dari sapi perah dengan pakan bernutrisi tinggi untuk produksi optimal.</p>
+                    <p>Susu murni bernutrisi tinggi, hasil dari sapi perah yang dirawat dengan pakan berkualitas dan manajemen modern.</p>
                 </div>
 
                 <div class="product-card fade-in">
                     <div class="product-icon">
-                        <i class="fas fa-drumstick-bite"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path><path d="M18.36 6.64a9 9 0 0 1-12.73 0"></path><path d="M21.17 9.46a5 5 0 0 1-7.07 0"></path></svg>
                     </div>
                     <h3>Daging Sapi</h3>
-                    <p>Daging sapi potong berkualitas tinggi, termasuk sapi PO (Peranakan Ongole) yang menjadi keunggulan produk kami.</p>
+                    <p>Daging sapi potong premium, termasuk jenis Peranakan Ongole (PO) yang menjadi keunggulan kami.</p>
                 </div>
 
                 <div class="product-card fade-in">
                     <div class="product-icon">
-                        <i class="fas fa-seedling"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H12c-2.2 0-4-1.8-4-4V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 2.2-1.8 4-4 4z"></path><path d="M12 12v10"></path><path d="M12 12c-2.2 0-4 1.8-4 4v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4c0-2.2-1.8-4-4-4z"></path></svg>
                     </div>
                     <h3>Pupuk Organik</h3>
-                    <p>Pupuk organik berkualitas yang dihasilkan dari kotoran sapi, ramah lingkungan dan efektif untuk pertanian.</p>
+                    <p>Pupuk kompos dari limbah ternak yang diolah untuk menyuburkan tanah secara alami dan ramah lingkungan.</p>
                 </div>
 
                 <div class="product-card fade-in">
                     <div class="product-icon">
-                        <i class="fas fa-leaf"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                     </div>
-                    <h3>Rumput Unggulan</h3>
-                    <p>Rumput berkualitas tinggi yang ditanam khusus untuk pakan ternak, mendukung produksi susu dan daging optimal.</p>
+                    <h3>Rumput Pakan</h3>
+                    <p>Rumput unggulan yang dibudidayakan khusus sebagai pakan ternak untuk menjamin kualitas produksi.</p>
                 </div>
             </div>
         </div>
@@ -952,39 +756,92 @@
     <section id="services" class="section services">
         <div class="container">
             <h2 class="section-title fade-in">Layanan Kami</h2>
-            <p class="section-subtitle fade-in">Layanan Teaching Factory yang mengintegrasikan pendidikan dan produksi</p>
+            <p class="section-subtitle fade-in">Fasilitas lengkap untuk mendukung pendidikan, penelitian, dan kemitraan strategis.</p>
 
             <div class="services-grid">
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                     </div>
                     <h3>Praktik Mahasiswa</h3>
-                    <p>Fasilitas lengkap untuk praktik langsung mahasiswa dengan ruang praktik dan peralatan modern.</p>
+                    <p>Menyediakan sarana praktik langsung dengan peralatan modern untuk menunjang kompetensi mahasiswa.</p>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-flask"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path><path d="M18.36 6.64a9 9 0 0 1-12.73 0"></path><path d="M21.17 9.46a5 5 0 0 1-7.07 0"></path></svg>
                     </div>
-                    <h3>Penelitian & Pengembangan</h3>
-                    <p>Fasilitas penelitian untuk pengembangan teknologi peternakan dan inovasi produk.</p>
+                    <h3>Riset & Inovasi</h3>
+                    <p>Mendukung penelitian untuk pengembangan teknologi peternakan dan inovasi produk yang berkelanjutan.</p>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H12c-2.2 0-4-1.8-4-4V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 2.2-1.8 4-4 4z"></path><path d="M12 12v10"></path><path d="M12 12c-2.2 0-4 1.8-4 4v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4c0-2.2-1.8-4-4-4z"></path></svg>
                     </div>
                     <h3>Fasilitas Modern</h3>
-                    <p>Listrik stabil, mesin perah, chopper gabah, traktor, dan peralatan pemotongan yang lengkap.</p>
+                    <p>Dilengkapi mesin perah, chopper, traktor, dan peralatan pendukung operasional peternakan modern.</p>
                 </div>
 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                     </div>
                     <h3>Kerjasama Strategis</h3>
-                    <p>Fokus pada akademik dan kerjasama strategis untuk pengembangan bisnis peternakan.</p>
+                    <p>Terbuka untuk kemitraan dengan berbagai pihak untuk memajukan industri peternakan nasional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq">
+        <div class="container">
+            <h2 class="section-title fade-in">Pertanyaan Umum</h2>
+            <p class="section-subtitle fade-in">Temukan jawaban atas pertanyaan yang sering diajukan tentang produk dan layanan kami.</p>
+
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>Bagaimana cara membeli produk dari Peternakan Polije?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda dapat langsung datang ke lokasi kami atau menghubungi kami melalui telepon atau email yang tertera di bagian kontak untuk pemesanan dalam jumlah besar. Kami juga berencana untuk meluncurkan platform pemesanan online dalam
+                            waktu dekat.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>Apakah produk susu dan daging dijamin halal dan higienis?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tentu saja. Semua proses, mulai dari pemeliharaan ternak, pemerahan susu, hingga pemotongan, dilakukan sesuai dengan standar operasional prosedur (SOP) yang ketat dan prinsip halal. Kebersihan dan kualitas adalah prioritas utama
+                            kami.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>Apakah Peternakan Polije terbuka untuk kunjungan edukasi?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami sangat terbuka untuk kunjungan edukasi dari sekolah, universitas, atau kelompok masyarakat. Silakan hubungi kami terlebih dahulu untuk menjadwalkan kunjungan agar kami dapat mempersiapkannya dengan baik.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <h4>Bagaimana cara mengajukan program magang atau praktik kerja di sini?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bagi mahasiswa yang tertarik untuk magang, silakan kirimkan proposal dan CV Anda ke email kami. Program magang biasanya dibuka setiap semester, namun kami juga menerima permohonan di luar jadwal tersebut tergantung pada kebutuhan.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -994,67 +851,36 @@
     <section id="contact" class="section contact">
         <div class="container">
             <h2 class="section-title fade-in">Hubungi Kami</h2>
-            <p class="section-subtitle fade-in">Mari berkolaborasi untuk kemajuan peternakan dan pendidikan Indonesia</p>
+            <p class="section-subtitle fade-in">Mari berkolaborasi untuk kemajuan peternakan dan pendidikan di Indonesia.</p>
 
             <div class="contact-content">
                 <div class="contact-info fade-in">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div>
                             <h4>Alamat</h4>
-                            <p>UPT Pengembangan Pertanian Terpadu<br>Politeknik Negeri Jember<br>Jl. Mastrip No. 59, Jember, Jawa Timur</p>
+                            <p>UPT Pengembangan Pertanian Terpadu, Politeknik Negeri Jember<br>Jl. Mastrip No. 59, Jember, Jawa Timur</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
                         <div>
                             <h4>Telepon</h4>
                             <p>+62 331 333 1234</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div>
                             <h4>Email</h4>
                             <p>peternakan@polije.ac.id</p>
                         </div>
                     </div>
-
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-facebook"></i>
-                        </div>
-                        <div>
-                            <h4>Facebook</h4>
-                            <p>Peternakan Polije Official</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div>
                             <h4>Jam Operasional</h4>
-                            <p>Senin - Jumat: 08:00 - 16:00<br>Sabtu: 08:00 - 12:00<br>Minggu: Tutup</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div>
-                            <h4>Kapasitas</h4>
-                            <p>30-40 ekor sapi per siklus<br>Fasilitas lengkap untuk mahasiswa</p>
+                            <p>Senin - Jumat: 08:00 - 16:00</p>
                         </div>
                     </div>
                 </div>
@@ -1062,42 +888,28 @@
                 <div class="contact-form fade-in">
                     <form>
                         <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required>
                         </div>
-
                         <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Masukkan email" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="phone">No. Telepon</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telepon">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="institution">Institusi/Universitas</label>
-                            <input type="text" id="institution" name="institution" placeholder="Nama institusi atau universitas">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="purpose">Tujuan Kerjasama</label>
-                            <select id="purpose" name="purpose">
-                                <option value="">Pilih tujuan kerjasama</option>
+                            <select id="purpose" name="purpose" required onchange="this.style.color='var(--text-dark)'">
+                                <option value="" disabled selected hidden></option>
                                 <option value="praktik">Praktik Mahasiswa</option>
                                 <option value="penelitian">Penelitian</option>
                                 <option value="pembelian">Pembelian Produk</option>
-                                <option value="kerjasama">Kerjasama Strategis</option>
+                                <option value="kerjasama">Kerjasama</option>
                                 <option value="lainnya">Lainnya</option>
                             </select>
+                            <label for="purpose">Tujuan</label>
                         </div>
-
                         <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
                             <label for="message">Pesan</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tuliskan pesan atau detail kerjasama yang diinginkan" required></textarea>
                         </div>
-
                         <button type="submit" class="submit-btn">Kirim Pesan</button>
                     </form>
                 </div>
@@ -1108,127 +920,160 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Peternakan Sapi Perah & Potong Polije. All rights reserved.</p>
+            <p>&copy; 2024 Peternakan Sapi Polije. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                document.getElementById('loading').classList.add('hidden');
-            }, 1500);
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            // Loading screen
+            const loadingScreen = document.getElementById('loading');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 500);
+            });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
+            // Navbar scroll effect
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            // Hamburger menu
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('mobile-active');
+                document.body.style.overflow = navMenu.classList.contains('mobile-active') ? 'hidden' : '';
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('mobile-active')) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('mobile-active');
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Active nav link on scroll
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const heroSection = document.querySelector('.hero');
+
+            window.addEventListener('scroll', () => {
+                // Parallax effect
+                const scrolled = window.pageYOffset;
+                heroSection.style.backgroundPositionY = scrolled * 0.5 + 'px';
+
+
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Fade in animation on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.2
+            });
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+
+                const submitBtn = form.querySelector('.submit-btn');
+                submitBtn.textContent = 'Mengirim...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    submitBtn.textContent = 'Pesan Terkirim!';
+                    submitBtn.style.background = 'var(--accent-color)';
+
+                    setTimeout(() => {
+                        form.reset();
+                        // Reset floating labels
+                        form.querySelectorAll('input, textarea').forEach(input => {
+                            input.parentElement.querySelector('label').style.top = '1rem';
+                        });
+                        submitBtn.textContent = 'Kirim Pesan';
+                        submitBtn.disabled = false;
+                        submitBtn.style.background = '';
+                    }, 2000);
+
+                }, 1000);
+            });
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const currentlyActive = document.querySelector('.faq-item.active');
+                    if (currentlyActive && currentlyActive !== item) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    item.classList.toggle('active');
+                });
             });
         });
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // 3D Tilt Effect
+        const tiltElements = document.querySelectorAll(".product-card, .service-card");
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        tiltElements.forEach(el => {
+            el.addEventListener("mousemove", function(e) {
+                const {
+                    left,
+                    top,
+                    width,
+                    height
+                } = this.getBoundingClientRect();
+                const x = (e.clientX - left) / width - 0.5;
+                const y = (e.clientY - top) / height - 0.5;
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+                const rotateX = y * -30;
+                const rotateY = x * 30;
 
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
-            this.reset();
-        });
-
-        // Hamburger menu functionality
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        const mobileOverlay = document.getElementById('mobile-overlay');
-
-        function toggleMobileMenu() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('mobile-active');
-            mobileOverlay.classList.toggle('active');
-
-            // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('mobile-active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function closeMobileMenu() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('mobile-active');
-            mobileOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        hamburger.addEventListener('click', toggleMobileMenu);
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
-        });
-
-        // Close mobile menu when clicking overlay
-        mobileOverlay.addEventListener('click', closeMobileMenu);
-
-        // Close mobile menu when pressing escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navMenu.classList.contains('mobile-active')) {
-                closeMobileMenu();
-            }
-        });
-
-        // Add some interactive effects
-        document.querySelectorAll('.product-card, .service-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+                this.style.transition = "none";
             });
 
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
+            el.addEventListener("mouseleave", function() {
+                this.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+                this.style.transition = "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)";
             });
-        });
-
-        // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
         });
     </script>
 </body>
