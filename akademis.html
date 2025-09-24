@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Peternakan Sapi Perah & Potong Polije</title>
+    <title>Akademis - Peternakan Sapi Perah & Potong Polije</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +44,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        /* Navigation */
         
         .navbar {
             position: fixed;
@@ -150,13 +149,12 @@
         }
         
         .main-content {
-            padding-top: 40px;
+            padding-top: 80px;
             flex: 1;
         }
-        /* Section Styles */
         
         .section {
-            padding: 6rem 0;
+            padding: 4rem 0;
         }
         
         .container {
@@ -182,61 +180,47 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* FAQ Section */
         
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: var(--bg-white);
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
+        .student-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
-            padding: 1.5rem;
-            cursor: pointer;
+        }
+        
+        .info-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+        
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-card {
             background: var(--bg-white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .faq-question h4 {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .faq-question i {
-            transition: transform 0.3s ease;
-        }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), padding 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            padding: 0 1.5rem;
-        }
-        
-        .faq-answer p {
-            padding-bottom: 1.5rem;
+        .testimonial-card blockquote {
+            font-style: italic;
             color: #555;
-            line-height: 1.7;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin: 0;
         }
         
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
+        .testimonial-card footer {
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
         }
-        
-        .faq-item.active .faq-answer {
-            max-height: 300px;
-            /* Adjust as needed */
-        }
-        /* Footer */
         
         .footer {
             background-color: #1a1a1a;
@@ -361,7 +345,6 @@
         .footer-bottom p {
             color: #a9a9a9;
         }
-        /* Animations on Scroll */
         
         .fade-in {
             opacity: 0;
@@ -373,7 +356,12 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Responsive Design */
+        
+        @media (max-width: 992px) {
+            .student-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         
         @media (max-width: 768px) {
             .nav-menu {
@@ -416,7 +404,6 @@
                 padding: 4rem 0;
             }
         }
-        /* Loading Animation */
         
         .loading {
             position: fixed;
@@ -455,12 +442,10 @@
 </head>
 
 <body>
-    <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -469,11 +454,11 @@
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html" class="nav-link">Beranda</a></li>
                 <li><a href="about.html" class="nav-link">Tentang</a></li>
-                <li><a href="products.html" class="nav-link">Produk</a></li>
-                <li><a href="services.html" class="nav-link">Layanan</a></li>
+                <li><a href="products.html" class="nav-link">Produk & Layanan</a></li>
+                <li><a href="facilities.html" class="nav-link">Fasilitas</a></li>
                 <li><a href="gallery.html" class="nav-link">Galeri</a></li>
-                <li><a href="faq.html" class="nav-link active">FAQ</a></li>
-                <li><a href="contact.html" class="nav-link">Kontak</a></li>
+                <li><a href="akademis.html" class="nav-link active">Akademis</a></li>
+                <li><a href="kerjasama.html" class="nav-link">Kerja Sama</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -484,61 +469,25 @@
     </nav>
 
     <main class="main-content">
-        <!-- FAQ Section -->
-        <section id="faq" class="section faq">
+        <section id="mahasiswa" class="section">
             <div class="container">
-                <h2 class="section-title fade-in">Pertanyaan Umum</h2>
-                <p class="section-subtitle fade-in">Temukan jawaban atas pertanyaan yang sering diajukan tentang produk dan layanan kami.</p>
+                <h2 class="section-title fade-in">Akademis</h2>
+                <p class="section-subtitle fade-in">Sarana pembelajaran, penelitian, dan pengabdian masyarakat.</p>
 
-                <div class="faq-container">
-                    <div class="faq-item fade-in">
-                        <div class="faq-question">
-                            <h4>Bagaimana cara membeli produk dari Peternakan Polije?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Anda dapat langsung datang ke lokasi kami atau menghubungi kami melalui telepon atau email yang tertera di bagian kontak untuk pemesanan dalam jumlah besar. Kami juga berencana untuk meluncurkan platform pemesanan online dalam
-                                waktu dekat.</p>
-                        </div>
+                <div class="student-info-grid">
+                    <div class="info-card fade-in">
+                        <h3>Praktik & Penelitian</h3>
+                        <p>Peternakan ini menjadi laboratorium hidup bagi mahasiswa untuk belajar dan berpraktik langsung di lapangan, memberikan wawasan mendalam tentang dunia peternakan modern.</p>
                     </div>
-
-                    <div class="faq-item fade-in">
-                        <div class="faq-question">
-                            <h4>Apakah produk susu dan daging dijamin halal dan higienis?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Tentu saja. Semua proses, mulai dari pemeliharaan ternak, pemerahan susu, hingga pemotongan, dilakukan sesuai dengan standar operasional prosedur (SOP) yang ketat dan prinsip halal. Kebersihan dan kualitas adalah prioritas
-                                utama kami.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item fade-in">
-                        <div class="faq-question">
-                            <h4>Apakah Peternakan Polije terbuka untuk kunjungan edukasi?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Ya, kami sangat terbuka untuk kunjungan edukasi dari sekolah, universitas, atau kelompok masyarakat. Silakan hubungi kami terlebih dahulu untuk menjadwalkan kunjungan agar kami dapat mempersiapkannya dengan baik.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item fade-in">
-                        <div class="faq-question">
-                            <h4>Bagaimana cara mengajukan program magang atau praktik kerja di sini?</h4>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Bagi mahasiswa yang tertarik untuk magang, silakan kirimkan proposal dan CV Anda ke email kami. Program magang biasanya dibuka setiap semester, namun kami juga menerima permohonan di luar jadwal tersebut tergantung pada kebutuhan.</p>
-                        </div>
+                    <div class="testimonial-card fade-in">
+                        <blockquote>"Dengan adanya peternakan ini, kami sebagai mahasiswa dapat merasakan pengalaman kerja yang sesungguhnya dan menerapkan ilmu yang kami dapat di kelas."</blockquote>
+                        <footer>- Mahasiswa Jurusan Peternakan</footer>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
@@ -554,19 +503,16 @@
                 <h4>Jelajahi</h4>
                 <ul>
                     <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="products.html">Produk</a></li>
-                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="products.html">Produk & Layanan</a></li>
+                    <li><a href="facilities.html">Fasilitas</a></li>
                     <li><a href="gallery.html">Galeri</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-services">
-                <h4>Layanan</h4>
+                <h4>Program</h4>
                 <ul>
-                    <li><a href="#">Praktik Mahasiswa</a></li>
-                    <li><a href="#">Riset & Inovasi</a></li>
-                    <li><a href="#">Fasilitas Modern</a></li>
-                    <li><a href="#">Kerjasama Strategis</a></li>
+                    <li><a href="mahasiswa.html">Info Mahasiswa</a></li>
+                    <li><a href="pemasaran.html">Pemasaran</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
@@ -583,7 +529,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Loading screen
             const loadingScreen = document.getElementById('loading');
             window.addEventListener('load', () => {
                 setTimeout(() => {
@@ -591,7 +536,6 @@
                 }, 500);
             });
 
-            // Navbar scroll effect
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -601,7 +545,6 @@
                 }
             });
 
-            // Hamburger menu
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('nav-menu');
             hamburger.addEventListener('click', () => {
@@ -610,7 +553,6 @@
                 document.body.style.overflow = navMenu.classList.contains('mobile-active') ? 'hidden' : '';
             });
 
-            // Close mobile menu on link click
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('mobile-active')) {
@@ -621,7 +563,6 @@
                 });
             });
 
-            // Fade in animation on scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -636,22 +577,11 @@
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
-
-            // FAQ Accordion
-            const faqItems = document.querySelectorAll('.faq-item');
-
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    const currentlyActive = document.querySelector('.faq-item.active');
-                    if (currentlyActive && currentlyActive !== item) {
-                        currentlyActive.classList.remove('active');
-                    }
-                    item.classList.toggle('active');
-                });
-            });
         });
     </script>
 </body>
 
 </html>
+// 3D Tilt Effect const tiltElements = document.querySelectorAll(".info-card, .testimonial-card"); tiltElements.forEach(el => { el.addEventListener("mousemove", function(e) { const { left, top, width, height } = this.getBoundingClientRect(); const x =
+(e.clientX - left) / width - 0.5; const y = (e.clientY - top) / height - 0.5; const rotateX = y * -15; const rotateY = x * 15; this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`; this.style.transition
+= "none"; }); el.addEventListener("mouseleave", function() { this.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)"; this.style.transition = "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)"; }); });

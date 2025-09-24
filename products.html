@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produk Unggulan - Peternakan Sapi Perah & Potong Polije</title>
+    <title>Produk & Layanan - Peternakan Sapi Perah & Potong Polije</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -387,6 +387,12 @@
         }
         /* Responsive Design */
         
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -481,11 +487,11 @@
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html" class="nav-link">Beranda</a></li>
                 <li><a href="about.html" class="nav-link">Tentang</a></li>
-                <li><a href="products.html" class="nav-link active">Produk</a></li>
-                <li><a href="services.html" class="nav-link">Layanan</a></li>
+                <li><a href="products.html" class="nav-link active">Produk & Layanan</a></li>
+                <li><a href="facilities.html" class="nav-link">Fasilitas</a></li>
                 <li><a href="gallery.html" class="nav-link">Galeri</a></li>
-                <li><a href="faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="contact.html" class="nav-link">Kontak</a></li>
+                <li><a href="akademis.html" class="nav-link">Akademis</a></li>
+                <li><a href="kerjasama.html" class="nav-link">Kerja Sama</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -499,40 +505,60 @@
         <!-- Products Section -->
         <section id="products" class="section products">
             <div class="container">
-                <h2 class="section-title fade-in">Produk Unggulan</h2>
+                <h2 class="section-title fade-in">Produk Kami</h2>
                 <p class="section-subtitle fade-in">Kualitas terbaik dari peternakan yang dikelola secara profesional dan edukatif.</p>
-
-                <div class="products-grid">
-                    <div class="product-card fade-in">
-                        <div class="product-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-                        </div>
-                        <h3>Susu Segar</h3>
-                        <p>Susu murni bernutrisi tinggi, hasil dari sapi perah yang dirawat dengan pakan berkualitas dan manajemen modern.</p>
-                    </div>
-
+                <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto;">
                     <div class="product-card fade-in">
                         <div class="product-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path><path d="M18.36 6.64a9 9 0 0 1-12.73 0"></path><path d="M21.17 9.46a5 5 0 0 1-7.07 0"></path></svg>
                         </div>
-                        <h3>Daging Sapi</h3>
-                        <p>Daging sapi potong premium, termasuk jenis Peranakan Ongole (PO) yang menjadi keunggulan kami.</p>
+                        <h3>Sapi Potong & Perah</h3>
+                        <p>Komoditas utama dari peternakan, termasuk sapi jenis PO (Peranakan Ongole) yang berkualitas unggul.</p>
                     </div>
-
                     <div class="product-card fade-in">
-                        <div class="product-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 12H12c-2.2 0-4-1.8-4-4V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4c0 2.2-1.8 4-4 4z"></path><path d="M12 12v10"></path><path d="M12 12c-2.2 0-4 1.8-4 4v4c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4c0-2.2-1.8-4-4-4z"></path></svg>
-                        </div>
+                        <div class="product-icon"><i class="fas fa-tint"></i></div>
+                        <h3>Susu Segar</h3>
+                        <p>Produk unggulan yang dipasok dalam jumlah besar ke pabrik-pabrik, dikenal karena kualitasnya yang prima.</p>
+                    </div>
+                    <div class="product-card fade-in">
+                        <div class="product-icon"><i class="fas fa-leaf"></i></div>
                         <h3>Pupuk Organik</h3>
-                        <p>Pupuk kompos dari limbah ternak yang diolah untuk menyuburkan tanah secara alami dan ramah lingkungan.</p>
+                        <p>Produk sampingan bernilai jual dari limbah ternak, dijual kepada warga atau petani di sekitar kampus.</p>
                     </div>
-
                     <div class="product-card fade-in">
-                        <div class="product-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                        </div>
+                        <div class="product-icon"><i class="fas fa-seedling"></i></div>
                         <h3>Rumput Pakan</h3>
-                        <p>Rumput unggulan yang dibudidayakan khusus sebagai pakan ternak untuk menjamin kualitas produksi.</p>
+                        <p>Rumput berkualitas tinggi yang dihasilkan sebagai produk non-hewani untuk pakan ternak.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="section services" style="background-color: var(--bg-light);">
+            <div class="container">
+                <h2 class="section-title fade-in">Layanan Kami</h2>
+                <p class="section-subtitle fade-in">Didukung oleh program layanan yang inovatif.</p>
+                <div class="products-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 800px; margin: 0 auto;">
+                    <div class="product-card fade-in">
+                        <div class="product-icon"><i class="fas fa-user-graduate"></i></div>
+                        <h3>Praktik Mahasiswa</h3>
+                        <p>Menyediakan sarana praktik langsung dengan peralatan modern untuk menunjang kompetensi mahasiswa.</p>
+                    </div>
+                    <div class="product-card fade-in">
+                        <div class="product-icon"><i class="fas fa-flask"></i></div>
+                        <h3>Riset & Inovasi</h3>
+                        <p>Mendukung penelitian untuk pengembangan teknologi peternakan dan inovasi produk yang berkelanjutan.</p>
+                    </div>
+                    <div class="product-card fade-in">
+                        <div class="product-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Kemitraan Industri</h3>
+                        <p>Bekerja sama dengan industri dan peternak lokal untuk transfer teknologi dan pengetahuan.</p>
+                    </div>
+                    <div class="product-card fade-in">
+                        <div class="product-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3>Layanan Edukasi</h3>
+                        <p>Terbuka untuk kunjungan edukasi dari sekolah, universitas, atau kelompok masyarakat untuk belajar tentang peternakan modern.</p>
                     </div>
                 </div>
             </div>
@@ -555,19 +581,16 @@
                 <h4>Jelajahi</h4>
                 <ul>
                     <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="products.html">Produk</a></li>
-                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="products.html">Produk & Layanan</a></li>
+                    <li><a href="facilities.html">Fasilitas</a></li>
                     <li><a href="gallery.html">Galeri</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-services">
-                <h4>Layanan</h4>
+                <h4>Program</h4>
                 <ul>
-                    <li><a href="#">Praktik Mahasiswa</a></li>
-                    <li><a href="#">Riset & Inovasi</a></li>
-                    <li><a href="#">Fasilitas Modern</a></li>
-                    <li><a href="#">Kerjasama Strategis</a></li>
+                    <li><a href="mahasiswa.html">Info Mahasiswa</a></li>
+                    <li><a href="pemasaran.html">Pemasaran</a></li>
                 </ul>
             </div>
             <div class="footer-contact">

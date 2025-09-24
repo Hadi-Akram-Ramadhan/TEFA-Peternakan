@@ -776,7 +776,8 @@
         
         @media (max-width: 992px) {
             .about-content,
-            .contact-content {
+            .contact-content,
+            .student-info-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
@@ -883,11 +884,11 @@
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html" class="nav-link active">Beranda</a></li>
                 <li><a href="about.html" class="nav-link">Tentang</a></li>
-                <li><a href="products.html" class="nav-link">Produk</a></li>
-                <li><a href="services.html" class="nav-link">Layanan</a></li>
+                <li><a href="products.html" class="nav-link">Produk & Layanan</a></li>
+                <li><a href="facilities.html" class="nav-link">Fasilitas</a></li>
                 <li><a href="gallery.html" class="nav-link">Galeri</a></li>
-                <li><a href="faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="contact.html" class="nav-link">Kontak</a></li>
+                <li><a href="akademis.html" class="nav-link">Akademis</a></li>
+                <li><a href="kerjasama.html" class="nav-link">Kerja Sama</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -919,9 +920,8 @@
                 </div>
                 <div class="about-text">
                     <h3>Tentang Kami</h3>
-                    <p>Sebagai Teaching Factory (TEFA) Politeknik Negeri Jember, kami mengintegrasikan pendidikan vokasi dengan praktik industri peternakan modern. Kami tidak hanya menghasilkan produk sapi perah dan potong berkualitas tinggi, tetapi juga
-                        menjadi pusat pembelajaran inovatif bagi mahasiswa.</p>
-                    <p>Dengan fasilitas canggih dan didukung oleh para ahli, kami berkomitmen untuk memajukan sektor peternakan lokal melalui riset, teknologi, dan pemberdayaan masyarakat.</p>
+                    <p>Berawal dari inisiatif Jurusan Peternakan, peternakan kami berkembang menjadi Teaching Factory (Tefa) yang mengintegrasikan unit bisnis dengan sarana pembelajaran, penelitian, dan pengabdian masyarakat.</p>
+                    <p>Kami tidak hanya menghasilkan produk berkualitas, tetapi juga menjadi laboratorium hidup bagi mahasiswa untuk merasakan pengalaman kerja peternakan yang sebenarnya, dari teori hingga praktik langsung di lapangan.</p>
                     <a href="about.html" class="cta-button">Jelajahi Lebih Jauh</a>
                 </div>
             </div>
@@ -937,17 +937,17 @@
                 <div class="product-card">
                     <div class="product-icon"><i class="fas fa-cheese"></i></div>
                     <h3>Susu Sapi Segar</h3>
-                    <p>Susu murni pasteurisasi langsung dari peternakan kami, kaya nutrisi dan rasa.</p>
+                    <p>Susu kualitas prima yang dipasok dalam jumlah besar ke berbagai pabrik, menjadi salah satu produk unggulan kami.</p>
                 </div>
                 <div class="product-card">
                     <div class="product-icon"><i class="fas fa-drumstick-bite"></i></div>
                     <h3>Daging Sapi Potong</h3>
-                    <p>Daging sapi berkualitas premium dari ternak yang dirawat dengan standar tertinggi.</p>
+                    <p>Daging sapi premium, termasuk dari sapi jenis PO (Peranakan Ongole) yang merupakan keunggulan kami.</p>
                 </div>
                 <div class="product-card">
                     <div class="product-icon"><i class="fas fa-seedling"></i></div>
                     <h3>Pupuk Organik</h3>
-                    <p>Pupuk kompos berkualitas dari limbah peternakan untuk kesuburan tanah Anda.</p>
+                    <p>Produk sampingan bernilai jual yang kami pasarkan untuk warga dan petani di sekitar kampus.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
@@ -1005,6 +1005,92 @@
     </section>
 
 
+    <!-- FAQ Section -->
+    <section id="faq" class="section fade-in" style="background-color: var(--bg-light);">
+        <div class="container">
+            <h2 class="section-title">Pertanyaan Umum</h2>
+            <p class="section-subtitle">Temukan jawaban atas pertanyaan yang sering diajukan.</p>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Bagaimana cara membeli produk dari Peternakan Polije?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda dapat langsung datang ke lokasi kami atau menghubungi kami melalui telepon atau email yang tertera di bagian kontak untuk pemesanan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Apakah produk dijamin halal dan higienis?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tentu saja. Semua proses dilakukan sesuai dengan standar operasional prosedur (SOP) yang ketat dan prinsip halal.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Apakah Peternakan Polije terbuka untuk kunjungan edukasi?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami sangat terbuka untuk kunjungan edukasi. Silakan hubungi kami terlebih dahulu untuk menjadwalkan kunjungan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact fade-in">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <p class="section-subtitle">Mari berkolaborasi untuk kemajuan peternakan dan pendidikan di Indonesia.</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Alamat</h4>
+                            <p>UPT Pengembangan Pertanian Terpadu, Politeknik Negeri Jember<br>Jl. Mastrip No. 59, Jember, Jawa Timur</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <p>+62 331 333 1234</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>peternakan@polije.ac.id</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " required>
+                            <label for="name">Nama Lengkap</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                            <label for="message">Pesan</label>
+                        </div>
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -1021,19 +1107,16 @@
                 <h4>Jelajahi</h4>
                 <ul>
                     <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="products.html">Produk</a></li>
-                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="products.html">Produk & Layanan</a></li>
+                    <li><a href="facilities.html">Fasilitas</a></li>
                     <li><a href="gallery.html">Galeri</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-services">
-                <h4>Layanan</h4>
+                <h4>Program</h4>
                 <ul>
-                    <li><a href="#">Praktik Mahasiswa</a></li>
-                    <li><a href="#">Riset & Inovasi</a></li>
-                    <li><a href="#">Fasilitas Modern</a></li>
-                    <li><a href="#">Kerjasama Strategis</a></li>
+                    <li><a href="mahasiswa.html">Info Mahasiswa</a></li>
+                    <li><a href="pemasaran.html">Pemasaran</a></li>
                 </ul>
             </div>
             <div class="footer-contact">

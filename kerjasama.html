@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak - Peternakan Sapi Perah & Potong Polije</title>
+    <title>Kerja Sama - Peternakan Sapi Perah & Potong Polije</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,7 +44,6 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        /* Navigation */
         
         .navbar {
             position: fixed;
@@ -150,13 +149,12 @@
         }
         
         .main-content {
-            padding-top: 40px;
+            padding-top: 80px;
             flex: 1;
         }
-        /* Section Styles */
         
         .section {
-            padding: 6rem 0;
+            padding: 4rem 0;
         }
         
         .container {
@@ -182,111 +180,29 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* Contact Section */
         
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: flex-start;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
-        
-        .contact-icon {
-            font-size: 1.5rem;
-            margin-right: 1.5rem;
-            color: var(--primary-color);
-            width: 30px;
+        .marketing-content {
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .contact-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
+        .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
         }
         
-        .contact-item p {
-            color: #555;
-            line-height: 1.5;
-        }
-        
-        .form-group {
-            position: relative;
-            margin-bottom: 2.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-bottom: 2px solid #ddd;
-            background: transparent;
-            font-family: 'Poppins', sans-serif;
-            transition: border-color 0.3s ease;
-            font-size: 1rem;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-        
-        .form-group label {
-            position: absolute;
-            top: 1rem;
-            left: 0;
-            color: #999;
-            pointer-events: none;
-            transition: all 0.3s ease;
-        }
-        
-        .form-group input:focus+label,
-        .form-group input:not(:placeholder-shown)+label,
-        .form-group textarea:focus+label,
-        .form-group textarea:not(:placeholder-shown)+label,
-        .form-group select:focus+label,
-        .form-group select:valid+label {
-            top: -1.2rem;
-            left: 0;
-            font-size: 0.8rem;
+        .social-links a {
+            font-size: 2rem;
             color: var(--primary-color);
+            transition: transform 0.3s ease;
         }
         
-        .form-group select {
-            color: #999;
+        .social-links a:hover {
+            transform: scale(1.2);
         }
-        
-        .form-group select:valid {
-            color: var(--text-dark);
-        }
-        
-        .submit-btn {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-            font-size: 1rem;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(44, 85, 48, 0.2);
-        }
-        /* Footer */
         
         .footer {
             background-color: #1a1a1a;
@@ -411,7 +327,6 @@
         .footer-bottom p {
             color: #a9a9a9;
         }
-        /* Animations on Scroll */
         
         .fade-in {
             opacity: 0;
@@ -423,12 +338,10 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Responsive Design */
         
         @media (max-width: 992px) {
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
+            .marketing-content {
+                padding: 0 1rem;
             }
         }
         
@@ -473,7 +386,6 @@
                 padding: 4rem 0;
             }
         }
-        /* Loading Animation */
         
         .loading {
             position: fixed;
@@ -512,12 +424,10 @@
 </head>
 
 <body>
-    <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -526,11 +436,11 @@
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html" class="nav-link">Beranda</a></li>
                 <li><a href="about.html" class="nav-link">Tentang</a></li>
-                <li><a href="products.html" class="nav-link">Produk</a></li>
-                <li><a href="services.html" class="nav-link">Layanan</a></li>
+                <li><a href="products.html" class="nav-link">Produk & Layanan</a></li>
+                <li><a href="facilities.html" class="nav-link">Fasilitas</a></li>
                 <li><a href="gallery.html" class="nav-link">Galeri</a></li>
-                <li><a href="faq.html" class="nav-link">FAQ</a></li>
-                <li><a href="contact.html" class="nav-link active">Kontak</a></li>
+                <li><a href="akademis.html" class="nav-link">Akademis</a></li>
+                <li><a href="kerjasama.html" class="nav-link active">Kerja Sama</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -541,78 +451,20 @@
     </nav>
 
     <main class="main-content">
-        <!-- Contact Section -->
-        <section id="contact" class="section contact">
+        <section id="pemasaran" class="section">
             <div class="container">
-                <h2 class="section-title fade-in">Hubungi Kami</h2>
-                <p class="section-subtitle fade-in">Mari berkolaborasi untuk kemajuan peternakan dan pendidikan di Indonesia.</p>
+                <h2 class="section-title fade-in">Kerja Sama</h2>
+                <p class="section-subtitle fade-in">Menjalin kemitraan strategis untuk kemajuan bersama.</p>
 
-                <div class="contact-content">
-                    <div class="contact-info fade-in">
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                            <div>
-                                <h4>Alamat</h4>
-                                <p>UPT Pengembangan Pertanian Terpadu, Politeknik Negeri Jember<br>Jl. Mastrip No. 59, Jember, Jawa Timur</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                            <div>
-                                <h4>Telepon</h4>
-                                <p>+62 331 333 1234</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>peternakan@polije.ac.id</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                            <div>
-                                <h4>Jam Operasional</h4>
-                                <p>Senin - Jumat: 08:00 - 16:00</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form fade-in">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder=" " required>
-                                <label for="name">Nama Lengkap</label>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder=" " required>
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="form-group">
-                                <select id="purpose" name="purpose" required onchange="this.style.color='var(--text-dark)'">
-                                    <option value="" disabled selected hidden></option>
-                                    <option value="praktik">Praktik Mahasiswa</option>
-                                    <option value="penelitian">Penelitian</option>
-                                    <option value="pembelian">Pembelian Produk</option>
-                                    <option value="kerjasama">Kerjasama</option>
-                                    <option value="lainnya">Lainnya</option>
-                                </select>
-                                <label for="purpose">Tujuan</label>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
-                                <label for="message">Pesan</label>
-                            </div>
-                            <button type="submit" class="submit-btn">Kirim Pesan</button>
-                        </form>
-                    </div>
+                <div class="marketing-content fade-in">
+                    <p>Sebagai Teaching Factory, kami berfokus pada pengembangan unit bisnis dengan menjalin kerja sama strategis dengan berbagai pihak. Tujuannya adalah untuk meningkatkan penjualan dan memperkuat sektor peternakan di Politeknik Negeri Jember.</p>
+                    <br>
+                    <p>Kami terbuka untuk kemitraan dengan industri pangan, institusi pendidikan, dan masyarakat umum. Hubungi kami untuk informasi lebih lanjut.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-about">
@@ -628,19 +480,17 @@
                 <h4>Jelajahi</h4>
                 <ul>
                     <li><a href="about.html">Tentang Kami</a></li>
-                    <li><a href="products.html">Produk</a></li>
-                    <li><a href="services.html">Layanan</a></li>
+                    <li><a href="products.html">Produk & Layanan</a></li>
+                    <li><a href="facilities.html">Fasilitas</a></li>
                     <li><a href="gallery.html">Galeri</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="mahasiswa.html">Mahasiswa</a></li>
+                    <li><a href="pemasaran.html">Pemasaran</a></li>
                 </ul>
             </div>
             <div class="footer-services">
-                <h4>Layanan</h4>
+                <h4>Program</h4>
                 <ul>
-                    <li><a href="#">Praktik Mahasiswa</a></li>
-                    <li><a href="#">Riset & Inovasi</a></li>
-                    <li><a href="#">Fasilitas Modern</a></li>
-                    <li><a href="#">Kerjasama Strategis</a></li>
+                    <li><a href="mahasiswa.html">Info Mahasiswa</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
@@ -657,7 +507,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Loading screen
             const loadingScreen = document.getElementById('loading');
             window.addEventListener('load', () => {
                 setTimeout(() => {
@@ -665,7 +514,6 @@
                 }, 500);
             });
 
-            // Navbar scroll effect
             const navbar = document.getElementById('navbar');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
@@ -675,7 +523,6 @@
                 }
             });
 
-            // Hamburger menu
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('nav-menu');
             hamburger.addEventListener('click', () => {
@@ -684,7 +531,6 @@
                 document.body.style.overflow = navMenu.classList.contains('mobile-active') ? 'hidden' : '';
             });
 
-            // Close mobile menu on link click
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('mobile-active')) {
@@ -695,7 +541,6 @@
                 });
             });
 
-            // Fade in animation on scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -709,42 +554,6 @@
 
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
-            });
-
-            // Form submission
-            const form = document.querySelector('form');
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const submitBtn = form.querySelector('.submit-btn');
-                submitBtn.textContent = 'Mengirim...';
-                submitBtn.disabled = true;
-
-                setTimeout(() => {
-                    submitBtn.textContent = 'Pesan Terkirim!';
-                    submitBtn.style.background = 'var(--accent-color)';
-
-                    setTimeout(() => {
-                        form.reset();
-                        // Reset floating labels
-                        form.querySelectorAll('input, textarea, select').forEach(input => {
-                            const label = input.parentElement.querySelector('label');
-                            if (label) {
-                                label.style.top = '';
-                                label.style.left = '';
-                                label.style.fontSize = '';
-                                label.style.color = '';
-                            }
-                            if (input.tagName === 'SELECT') {
-                                input.style.color = '';
-                            }
-                        });
-                        submitBtn.textContent = 'Kirim Pesan';
-                        submitBtn.disabled = false;
-                        submitBtn.style.background = '';
-                    }, 2000);
-
-                }, 1000);
             });
         });
     </script>
