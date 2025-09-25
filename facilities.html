@@ -447,6 +447,14 @@
                 opacity: 1;
                 transform: none;
                 width: 100%;
+                transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .nav-menu .dropdown.active .dropdown-menu {
+                display: block;
+                max-height: 500px;
+                /* Adjust as needed */
             }
             .nav-menu .dropdown-menu a {
                 padding: 0.8rem 2rem;
@@ -657,21 +665,32 @@
             // Mobile Menu Logic
             // Mobile Menu Logic
             // Mobile Menu Logic
-            document.querySelectorAll('.nav-menu a').forEach(link => {
+            document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
                 link.addEventListener('click', (e) => {
-                    const isDropdownToggle = link.parentElement.classList.contains('dropdown') && window.innerWidth <= 768;
+                    const dropdown = link.parentElement;
+                    const isDropdownToggle = dropdown.classList.contains('dropdown') && window.innerWidth <= 768;
 
                     if (isDropdownToggle) {
                         e.preventDefault();
-                        const dropdownMenu = link.nextElementSibling;
-                        const icon = link.querySelector('i');
-                        const isVisible = dropdownMenu.style.display === 'block';
 
-                        dropdownMenu.style.display = isVisible ? 'none' : 'block';
+                        // Close other open dropdowns
+                        document.querySelectorAll('.nav-menu .dropdown.active').forEach(openDropdown => {
+                            if (openDropdown !== dropdown) {
+                                openDropdown.classList.remove('active');
+                                const icon = openDropdown.querySelector('.nav-link i');
+                                if (icon) icon.style.transform = 'rotate(0deg)';
+                            }
+                        });
+
+                        // Toggle current dropdown
+                        dropdown.classList.toggle('active');
+                        const icon = link.querySelector('i');
                         if (icon) {
-                            icon.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+                            icon.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
                         }
+
                     } else if (navMenu.classList.contains('mobile-active')) {
+                        // Close menu if a non-dropdown link is clicked
                         hamburger.classList.remove('active');
                         navMenu.classList.remove('mobile-active');
                         document.body.style.overflow = '';
