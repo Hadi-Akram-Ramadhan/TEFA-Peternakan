@@ -614,16 +614,6 @@
                 document.body.style.overflow = navMenu.classList.contains('mobile-active') ? 'hidden' : '';
             });
 
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navMenu.classList.contains('mobile-active')) {
-                        hamburger.classList.remove('active');
-                        navMenu.classList.remove('mobile-active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            });
-
             // Mobile Menu Logic
             document.querySelectorAll('.nav-menu a').forEach(link => {
                 link.addEventListener('click', (e) => {
