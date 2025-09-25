@@ -665,13 +665,14 @@
             // Mobile Menu Logic
             // Mobile Menu Logic
             // Mobile Menu Logic
-            document.querySelectorAll('.nav-menu .nav-link').forEach(link => {
+            document.querySelectorAll('.nav-menu a').forEach(link => {
                 link.addEventListener('click', (e) => {
-                    const dropdown = link.parentElement;
-                    const isDropdownToggle = dropdown.classList.contains('dropdown') && window.innerWidth <= 768;
+                    // Check if the clicked link is a dropdown toggle
+                    const isDropdownToggle = link.classList.contains('nav-link') && link.parentElement.classList.contains('dropdown');
 
-                    if (isDropdownToggle) {
+                    if (isDropdownToggle && window.innerWidth <= 768) {
                         e.preventDefault();
+                        const dropdown = link.parentElement;
 
                         // Close other open dropdowns
                         document.querySelectorAll('.nav-menu .dropdown.active').forEach(openDropdown => {
@@ -688,9 +689,8 @@
                         if (icon) {
                             icon.style.transform = dropdown.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
                         }
-
                     } else if (navMenu.classList.contains('mobile-active')) {
-                        // Close menu if a non-dropdown link is clicked
+                        // This will now correctly fire for links inside the dropdown as well
                         hamburger.classList.remove('active');
                         navMenu.classList.remove('mobile-active');
                         document.body.style.overflow = '';
