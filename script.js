@@ -1,3 +1,31 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const cursor = document.querySelector('.cursor');
+
+    // Custom Cursor
+    if (cursor) {
+        document.addEventListener('mousemove', e => {
+            cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+        });
+
+        document.addEventListener('click', () => {
+            cursor.classList.add("expand");
+            setTimeout(() => {
+                cursor.classList.remove("expand");
+            }, 500)
+        });
+
+        const links = document.querySelectorAll('a, button');
+        links.forEach(link => {
+            link.addEventListener('mouseover', () => {
+                cursor.classList.add('cursor-grow');
+            });
+            link.addEventListener('mouseleave', () => {
+                cursor.classList.remove('cursor-grow');
+            });
+        });
+    }
+});
+
 // Loading screen
 window.addEventListener('load', function() {
     setTimeout(() => {
@@ -49,11 +77,15 @@ document.querySelectorAll('.fade-in').forEach(el => {
 });
 
 // Form submission
-document.querySelector('form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
-    this.reset();
-});
+const form = document.querySelector('form');
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Terima kasih! Pesan Anda telah dikirim. Kami akan segera menghubungi Anda.');
+        this.reset();
+    });
+}
+
 
 // Hamburger menu functionality
 const hamburger = document.getElementById('hamburger');
@@ -125,7 +157,9 @@ window.addEventListener('scroll', function() {
     if (window.innerWidth > 768) {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
-        hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+        if (hero) {
+            hero.style.backgroundPositionY = `${scrolled * 0.5}px`;
+        }
     }
 });
 // FAQ Accordion

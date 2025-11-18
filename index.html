@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div class="cursor"></div>
     <!-- Loading Screen -->
     <div class="loading" id="loading">
         <div class="spinner"></div>
@@ -19,17 +20,21 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">
-                <i class="fas fa-cow"></i> Peternakan Polije
+            <a href="index.html" class="logo">
+                Tefa Peternakan Sapi Polije
             </a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="#home" class="nav-link">Beranda</a></li>
-                <li><a href="#about" class="nav-link">Tentang</a></li>
-                <li><a href="#products" class="nav-link">Produk</a></li>
-                <li><a href="#services" class="nav-link">Layanan</a></li>
-                <li><a href="#gallery" class="nav-link">Galeri</a></li>
-                <li><a href="#faq" class="nav-link">FAQ</a></li>
-                <li><a href="#contact" class="nav-link">Kontak</a></li>
+                <li><a href="index.html" class="nav-link">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Profil <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="facilities.html">Fasilitas</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                    </ul>
+                </li>
+                <li><a href="products-services.html" class="nav-link">Produk & Layanan</a></li>
+                <li><a href="contact.html" class="nav-link">Kontak</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -47,257 +52,103 @@
         <div class="hero-content">
             <h1>Peternakan Sapi Perah & Potong Polije</h1>
             <p>Teaching Factory yang menghadirkan produk berkualitas tinggi dengan standar modern dan edukasi terbaik untuk mahasiswa</p>
-            <a href="#about" class="cta-button">Pelajari Lebih Lanjut</a>
+            <a href="#welcome" class="cta-button">Pelajari Lebih Lanjut</a>
         </div>
         <div class="scroll-indicator">
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
+    <!-- Welcome Section -->
+    <section id="welcome" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Tentang Kami</h2>
-            <p class="section-subtitle fade-in">Teaching Factory yang mengintegrasikan pendidikan, penelitian, dan produksi peternakan</p>
+            <h2 class="section-title">Selamat Datang di Peternakan Polije</h2>
+            <p class="section-subtitle">Inovasi, Edukasi, dan Kualitas dalam Satu Atap</p>
+        </div>
+    </section>
 
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <h3>Sejarah & Visi Kami</h3>
-                    <p>Peternakan Sapi Perah dan Potong Polije dimulai sebagai inisiatif Jurusan Peternakan Politeknik Negeri Jember. Awalnya dibangun untuk keperluan akademik, kemudian berkembang menjadi Teaching Factory yang mengintegrasikan pendidikan,
-                        penelitian, dan produksi.</p>
-                    <p>Selain fokus pada produksi dan bisnis, kami juga berkomitmen untuk pendidikan serta membuka lapangan pekerjaan bagi warga sekitar. Peternakan kami memiliki kapasitas 30-40 ekor sapi per siklus dengan fasilitas yang lengkap dan modern.</p>
-                    <p>Sebagai Teaching Factory, kami menyediakan fasilitas pembelajaran yang mendukung mahasiswa untuk praktik langsung, mencoba teknologi terbaru, dan tidak hanya belajar teori di kelas.</p>
-                </div>
-                <div class="about-image fade-in">
-                    <img src="https://images.unsplash.com/photo-1544966503-7cc4bbbc0f4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Peternakan Modern">
-                </div>
+    <!-- About Summary Section -->
+    <section id="about-summary" class="section">
+        <div class="container about-summary-content">
+            <div class="about-summary-image">
+                <img src="https://images.unsplash.com/photo-1594952441419-624a9a6a44ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Tim Peternakan Polije">
+            </div>
+            <div class="about-summary-text">
+                <h3>Tentang Kami</h3>
+                <p>Berawal dari inisiatif Jurusan Peternakan, peternakan kami berkembang menjadi Teaching Factory (Tefa) yang mengintegrasikan unit bisnis dengan sarana pembelajaran, penelitian, dan pengabdian masyarakat.</p>
+                <p>Kami tidak hanya menghasilkan produk berkualitas, tetapi juga menjadi laboratorium hidup bagi mahasiswa untuk merasakan pengalaman kerja peternakan yang sebenarnya, dari teori hingga praktik langsung di lapangan.</p>
+                <a href="about.html" class="cta-button">Jelajahi Lebih Jauh</a>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section products">
+    <!-- Featured Products Section -->
+    <section id="featured-products" class="section products">
         <div class="container">
-            <h2 class="section-title fade-in">Produk Kami</h2>
-            <p class="section-subtitle fade-in">Produk berkualitas tinggi hasil Teaching Factory yang terintegrasi</p>
-
+            <h2 class="section-title">Produk Unggulan Kami</h2>
+            <p class="section-subtitle">Hasil dari peternakan modern yang mengutamakan kualitas dan kesejahteraan ternak.</p>
             <div class="products-grid">
-                <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-blender"></i>
-                    </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-cow"></i></div>
+                    <h3>Sapi Potong & Perah</h3>
+                    <p>Komoditas utama dari peternakan, termasuk sapi jenis PO (Peranakan Ongole) yang berkualitas unggul.</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-prescription-bottle"></i></div>
                     <h3>Susu Segar</h3>
-                    <p>Susu segar berkualitas unggulan yang dihasilkan dari sapi perah dengan pakan bernutrisi tinggi untuk produksi optimal.</p>
+                    <p>Produk unggulan yang dipasok dalam jumlah besar ke pabrik-pabrik, dikenal karena kualitasnya yang prima.</p>
                 </div>
-
-                <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-cow"></i>
-                    </div>
-                    <h3>Daging Sapi</h3>
-                    <p>Daging sapi potong berkualitas tinggi, termasuk sapi PO (Peranakan Ongole) yang menjadi keunggulan produk kami.</p>
-                </div>
-
-                <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
+                <div class="product-card">
+                    <div class="product-icon"><i class="fas fa-seedling"></i></div>
                     <h3>Pupuk Organik</h3>
-                    <p>Pupuk organik berkualitas yang dihasilkan dari kotoran sapi, ramah lingkungan dan efektif untuk pertanian.</p>
+                    <p>Produk sampingan bernilai jual dari limbah ternak, dijual kepada warga atau petani di sekitar kampus.</p>
                 </div>
-
-                <div class="product-card fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-tractor"></i>
-                    </div>
-                    <h3>Rumput Unggulan</h3>
-                    <p>Rumput berkualitas tinggi yang ditanam khusus untuk pakan ternak, mendukung produksi susu dan daging optimal.</p>
-                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="products-services.html" class="cta-button">Lihat Lebih Lengkap</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section services">
+    <!-- Services & Program Section -->
+    <section id="services-program" class="section services">
         <div class="container">
-            <h2 class="section-title fade-in">Layanan Kami</h2>
-            <p class="section-subtitle fade-in">Layanan Teaching Factory yang mengintegrasikan pendidikan dan produksi</p>
-
+            <h2 class="section-title">Layanan & Program</h2>
+            <p class="section-subtitle">Kami lebih dari sekadar peternakan. Kami adalah pusat edukasi dan inovasi.</p>
             <div class="services-grid">
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-user-graduate"></i>
-                    </div>
-                    <h3>Praktik Mahasiswa</h3>
-                    <p>Fasilitas lengkap untuk praktik langsung mahasiswa dengan ruang praktik dan peralatan modern.</p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <p>Menyediakan sarana praktik langsung dengan peralatan modern untuk menunjang kompetensi mahasiswa.</p>
                 </div>
-
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-microscope"></i>
-                    </div>
-                    <h3>Penelitian & Pengembangan</h3>
-                    <p>Fasilitas penelitian untuk pengembangan teknologi peternakan dan inovasi produk.</p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                    <p>Mendukung penelitian untuk pengembangan teknologi peternakan dan inovasi produk yang berkelanjutan.</p>
                 </div>
-
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Fasilitas Modern</h3>
-                    <p>Listrik stabil, mesin perah, chopper gabah, traktor, dan peralatan pemotongan yang lengkap.</p>
-                </div>
-
-                <div class="service-card fade-in">
-                    <div class="service-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Kerjasama Strategis</h3>
-                    <p>Fokus pada akademik dan kerjasama strategis untuk pengembangan bisnis peternakan.</p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                    <p>Bekerja sama dengan industri dan peternak lokal untuk transfer teknologi dan pengetahuan.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="section gallery">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section">
         <div class="container">
-            <h2 class="section-title fade-in">Galeri Kami</h2>
-            <p class="section-subtitle fade-in">Lihat lebih dekat fasilitas dan produk unggulan kami</p>
-
-            <div class="gallery-grid">
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1589923188900-85dae5233a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Sapi Perah">
+            <h2 class="section-title">Apa Kata Mereka</h2>
+            <p class="section-subtitle">Kami bangga dapat memberikan dampak positif bagi mahasiswa dan mitra kami.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"Pengalaman magang di TEFA Peternakan Polije sangat luar biasa. Saya belajar banyak tentang manajemen peternakan modern."</p>
+                    <span>– Budi, Mahasiswa</span>
                 </div>
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e45f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Produk Susu">
+                <div class="testimonial-card">
+                    <p>"Kualitas susu dari Peternakan Polije selalu terjamin kesegarannya. Sangat direkomendasikan untuk keluarga."</p>
+                    <span>– Ibu Ani, Pelanggan</span>
                 </div>
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1571771019787-ef013410792b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Peternakan Modern">
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1563201194-261277598005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Sapi Potong">
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1589923188900-85dae5233a8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Pakan Ternak">
-                </div>
-                <div class="gallery-item fade-in">
-                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e45f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Fasilitas Penelitian">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Hubungi Kami</h2>
-            <p class="section-subtitle fade-in">Mari berkolaborasi untuk kemajuan peternakan dan pendidikan Indonesia</p>
-
-            <div class="contact-content">
-                <div class="contact-info fade-in">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Alamat</h4>
-                            <p>UPT Pengembangan Pertanian Terpadu<br>Politeknik Negeri Jember<br>Jl. Mastrip No. 59, Jember, Jawa Timur</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Telepon</h4>
-                            <p>+62 331 333 1234</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>peternakan@polije.ac.id</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-facebook"></i>
-                        </div>
-                        <div>
-                            <h4>Facebook</h4>
-                            <p>Peternakan Polije Official</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div>
-                            <h4>Jam Operasional</h4>
-                            <p>Senin - Jumat: 08:00 - 16:00<br>Sabtu: 08:00 - 12:00<br>Minggu: Tutup</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div>
-                            <h4>Kapasitas</h4>
-                            <p>30-40 ekor sapi per siklus<br>Fasilitas lengkap untuk mahasiswa</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contact-form fade-in">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Masukkan email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">No. Telepon</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telepon">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="institution">Institusi/Universitas</label>
-                            <input type="text" id="institution" name="institution" placeholder="Nama institusi atau universitas">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="purpose">Tujuan Kerjasama</label>
-                            <select id="purpose" name="purpose">
-                                <option value="">Pilih tujuan kerjasama</option>
-                                <option value="praktik">Praktik Mahasiswa</option>
-                                <option value="penelitian">Penelitian</option>
-                                <option value="pembelian">Pembelian Produk</option>
-                                <option value="kerjasama">Kerjasama Strategis</option>
-                                <option value="lainnya">Lainnya</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Pesan</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tuliskan pesan atau detail kerjasama yang diinginkan" required></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Kirim Pesan</button>
-                    </form>
+                <div class="testimonial-card">
+                    <p>"Kerja sama riset dengan Peternakan Polije membantu kami mengembangkan pakan ternak yang lebih efisien dan bergizi."</p>
+                    <span>– Dr. Santoso, Mitra Industri</span>
                 </div>
             </div>
         </div>
@@ -308,20 +159,10 @@
         <div class="container">
             <h2 class="section-title fade-in">Pertanyaan Umum</h2>
             <p class="section-subtitle fade-in">Temukan jawaban atas pertanyaan yang sering diajukan</p>
-
             <div class="faq-grid">
                 <div class="faq-item fade-in">
                     <button class="faq-question">
-                        <span>Apa saja produk utama yang dihasilkan?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Kami menghasilkan susu segar, daging sapi berkualitas, pupuk organik, dan rumput unggulan untuk pakan ternak.</p>
-                    </div>
-                </div>
-                <div class="faq-item fade-in">
-                    <button class="faq-question">
-                        <span>Bagaimana cara membeli produk dari peternakan?</span>
+                        <span>Bagaimana cara membeli produk dari Peternakan Polije?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
@@ -330,21 +171,55 @@
                 </div>
                 <div class="faq-item fade-in">
                     <button class="faq-question">
-                        <span>Apakah peternakan ini terbuka untuk kunjungan?</span>
+                        <span>Apakah produk dijamin halal dan higienis?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Ya, kami terbuka untuk kunjungan edukasi dan kerja sama. Silakan hubungi kami untuk informasi lebih lanjut.</p>
+                        <p>Ya, semua produk kami diolah dengan standar halal dan higienis yang ketat untuk menjamin kualitas dan keamanan.</p>
                     </div>
                 </div>
                 <div class="faq-item fade-in">
                     <button class="faq-question">
-                        <span>Bagaimana cara mengajukan kerja sama atau praktik mahasiswa?</span>
+                        <span>Apakah Peternakan Polije terbuka untuk kunjungan edukasi?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
-                        <p>Anda dapat mengisi formulir kontak dengan memilih tujuan "Kerjasama Strategis" atau "Praktik Mahasiswa" dan kami akan segera menghubungi Anda.</p>
+                        <p>Ya, kami sangat terbuka untuk kunjungan edukasi dari sekolah, universitas, atau masyarakat umum. Silakan hubungi kami untuk mengatur jadwal.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Hubungi Kami</h2>
+            <p class="section-subtitle fade-in">Kami siap mendengar dari Anda. Jangan ragu untuk menghubungi kami.</p>
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h4>Alamat</h4>
+                    <p>UPT Pengembangan Pertanian Terpadu, Politeknik Negeri Jember<br>Jl. Mastrip No. 59, Jember, Jawa Timur</p>
+                    <h4>Telepon</h4>
+                    <p>+62 331 333 1234</p>
+                    <h4>Email</h4>
+                    <p>peternakan@polije.ac.id</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" placeholder="Pesan" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="contact-map fade-in">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.399208934883!2d113.7142823147809!3d-8.16262399412386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6750a3175%3A0x7c0a735c74c01a3!2sPoliteknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1670000000000!5m2!1sid!2sid"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
@@ -353,7 +228,32 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Peternakan Sapi Perah & Potong Polije. All rights reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Peternakan Sapi Polije</h4>
+                    <p>Teaching Factory yang berkomitmen pada pendidikan, pemberdayaan masyarakat, dan penyediaan produk peternakan berkualitas.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Jelajahi</h4>
+                    <ul>
+                        <li><a href="about.html">Tentang</a></li>
+                        <li><a href="products-services.html">Produk & Layanan</a></li>
+                        <li><a href="facilities.html">Fasilitas</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="#">Akademis</a></li>
+                        <li><a href="#">Kerjasama</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hubungi Kami</h4>
+                    <p>Jl. Mastrip No. 59, Jember<br> +62 331 333 1234<br> peternakan@polije.ac.id
+                    </p>
+                    <div class="footer-logos">
+                        <img src="https://www.polije.ac.id/wp-content/uploads/2021/03/logo-polije-jember.png" alt="Logo Polije">
+                        <img src="https://www.blu.id/wp-content/uploads/2021/03/logo-blu-jember.png" alt="Logo BLU">
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
