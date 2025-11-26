@@ -23,13 +23,18 @@
 
 <body class="font-['Poppins'] bg-white text-gray-800">
 
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Navbar -->
     <div id="navbar-placeholder"></div>
 
     <!-- Page Header / Hero Section -->
     <section class="pt-32 pb-16 sm:pb-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
+            <div class="text-center animate-fade-in">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                     Hubungi Kami
                 </h2>
@@ -46,7 +51,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Left: Contact Info & Form -->
-                <div class="space-y-8">
+                <div class="space-y-8 scroll-animate fade-right">
                     <!-- Contact Information -->
                     <div>
                         <h3 class="text-2xl font-bold text-gray-800 mb-6">Alamat</h3>
@@ -100,7 +105,7 @@
                 </div>
 
                 <!-- Right: Map -->
-                <div class="lg:sticky lg:top-32 h-fit">
+                <div class="lg:sticky lg:top-32 h-fit scroll-animate fade-left">
                     <div class="bg-white rounded-xl shadow-lg p-2 overflow-hidden">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.2872583582745!2d113.71917731477704!3d-8.160201994192252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b617d8f623%3A0xf6c4437632474338!2sPoliteknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid"

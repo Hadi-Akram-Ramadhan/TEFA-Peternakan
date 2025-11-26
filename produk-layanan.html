@@ -23,13 +23,18 @@
 
 <body class="font-['Poppins'] bg-white text-gray-800">
 
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Navbar -->
     <div id="navbar-placeholder"></div>
 
     <!-- Page Header / Hero Section -->
     <section class="pt-32 pb-16 sm:pb-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
+            <div class="text-center animate-fade-in">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4">
                     Produk Kami
                 </h2>
@@ -47,7 +52,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Product 1: Sapi Potong & Perah -->
                 <div
-                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 scroll-animate zoom-in">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +70,7 @@
 
                 <!-- Product 2: Susu Segar -->
                 <div
-                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 scroll-animate zoom-in" style="transition-delay: 0.1s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,7 +88,7 @@
 
                 <!-- Product 3: Pupuk Organik -->
                 <div
-                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 scroll-animate zoom-in" style="transition-delay: 0.2s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,7 +105,7 @@
 
                 <!-- Product 4: Rempah Pakan -->
                 <div
-                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 scroll-animate zoom-in" style="transition-delay: 0.3s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +127,7 @@
     <!-- Services Section -->
     <section class="py-16 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate fade-up">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                     Layanan Kami
                 </h2>
@@ -134,7 +139,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Service 1: Praktik Mahasiswa -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 scroll-animate fade-up">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -152,7 +157,7 @@
 
                 <!-- Service 2: Riset & Inovasi -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 scroll-animate fade-up" style="transition-delay: 0.1s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -170,7 +175,7 @@
 
                 <!-- Service 3: Kemitraan Industri -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 scroll-animate fade-up" style="transition-delay: 0.2s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,7 +193,7 @@
 
                 <!-- Service 4: Layanan Edukasi -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 scroll-animate fade-up" style="transition-delay: 0.3s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -206,7 +211,7 @@
 
                 <!-- Service 5: Layanan Konsumen -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 scroll-animate fade-up" style="transition-delay: 0.4s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +231,7 @@
 
     <!-- CTA Section -->
     <section class="py-16 sm:py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center scroll-animate zoom-in">
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6">
                 Tertarik Dengan Layanan Kami?
             </h2>

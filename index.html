@@ -23,6 +23,11 @@
 
 <body class="font-['Poppins'] bg-white text-gray-800">
 
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Navbar -->
     <div id="navbar-placeholder"></div>
 
@@ -30,15 +35,16 @@
     <section id="beranda" class="relative h-screen flex items-center justify-center text-white"
         style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/images/hero-bg.jpg') center/cover no-repeat;">
         <div class="text-center px-4 animate-fade-in">
-            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
+            <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight animate-fade-in">
                 Peternakan Sapi Perah<br>& Potong Polije
             </h2>
-            <p class="text-lg sm:text-xl mb-8 max-w-2xl mx-auto">
+            <p class="text-lg sm:text-xl mb-8 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">
                 Teaching Factory yang menghadirkan produk berkualitas tinggi dengan<br class="hidden sm:block">
                 standar modern dan inovasi terbaik untuk masyarakat
             </p>
             <a href="tentang.html"
-                class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in"
+                style="animation-delay: 0.4s;">
                 Pelajari Lebih Lanjut
             </a>
         </div>
@@ -47,7 +53,7 @@
     <!-- Welcome Section -->
     <section class="py-16 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate fade-up">
                 <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                     Selamat Datang di Peternakan Polije
                 </h3>
@@ -57,11 +63,11 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div class="order-2 md:order-1">
+                <div class="order-2 md:order-1 scroll-animate fade-right">
                     <img src="assets/images/welcome-image.jpg" alt="Fasilitas Peternakan"
-                        class="rounded-lg shadow-xl w-full h-auto">
+                        class="rounded-lg shadow-xl w-full h-auto hover:scale-105 transition-transform duration-500">
                 </div>
-                <div class="order-1 md:order-2 space-y-6">
+                <div class="order-1 md:order-2 space-y-6 scroll-animate fade-left">
                     <div>
                         <h4 class="text-2xl font-bold text-gray-800 mb-4">Tentang Kami</h4>
                         <p class="text-gray-600 leading-relaxed mb-4">
@@ -76,7 +82,7 @@
                         </p>
                     </div>
                     <a href="tentang.html"
-                        class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300">
+                        class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                         Selengkapnya Lebih Jauh
                     </a>
                 </div>
@@ -87,7 +93,7 @@
     <!-- Produk Unggulan Section -->
     <section class="py-16 sm:py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate fade-up">
                 <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                     Produk Unggulan Kami
                 </h3>
@@ -100,7 +106,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Produk 1 -->
                 <div
-                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 scroll-animate zoom-in">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -122,7 +128,7 @@
 
                 <!-- Produk 2 -->
                 <div
-                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 scroll-animate zoom-in" style="transition-delay: 0.1s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,7 +149,7 @@
 
                 <!-- Produk 3 -->
                 <div
-                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    class="product-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 scroll-animate zoom-in" style="transition-delay: 0.2s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,9 +169,9 @@
                 </div>
             </div>
 
-            <div class="text-center mt-10">
+            <div class="text-center mt-10 scroll-animate fade-up">
                 <a href="produk-layanan.html"
-                    class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+                    class="inline-block bg-green-700 hover:bg-green-800 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
                     Lihat Lebih Lengkap
                 </a>
             </div>
@@ -175,7 +181,7 @@
     <!-- Layanan & Program Section -->
     <section id="produk-layanan" class="py-16 sm:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate fade-up">
                 <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                     Layanan & Program
                 </h3>
@@ -188,7 +194,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Layanan 1 -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100 scroll-animate fade-up">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,7 +213,7 @@
 
                 <!-- Layanan 2 -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100 scroll-animate fade-up" style="transition-delay: 0.1s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,7 +232,7 @@
 
                 <!-- Layanan 3 -->
                 <div
-                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                    class="service-card bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-gray-100 scroll-animate fade-up" style="transition-delay: 0.2s;">
                     <div class="flex justify-center mb-4">
                         <div class="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center">
                             <svg class="w-8 h-8 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -248,7 +254,7 @@
     <!-- Testimonials Section -->
     <section class="py-16 sm:py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate fade-up">
                 <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                     Apa Kata Mereka
                 </h3>
@@ -261,7 +267,7 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
                 <div
-                    class="testimonial-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    class="testimonial-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 scroll-animate zoom-in">
                     <div class="mb-4">
                         <svg class="w-10 h-10 text-green-700 opacity-50" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -279,7 +285,7 @@
 
                 <!-- Testimonial 2 -->
                 <div
-                    class="testimonial-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    class="testimonial-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 scroll-animate zoom-in" style="transition-delay: 0.1s;">
                     <div class="mb-4">
                         <svg class="w-10 h-10 text-green-700 opacity-50" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -297,7 +303,7 @@
 
                 <!-- Testimonial 3 -->
                 <div
-                    class="testimonial-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
+                    class="testimonial-card bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 scroll-animate zoom-in" style="transition-delay: 0.2s;">
                     <div class="mb-4">
                         <svg class="w-10 h-10 text-green-700 opacity-50" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -319,7 +325,7 @@
     <!-- FAQ Section -->
     <section class="py-16 sm:py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate fade-up">
                 <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                     Pertanyaan Umum
                 </h3>
@@ -328,7 +334,7 @@
                 </p>
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-4 scroll-animate fade-up">
                 <!-- FAQ 1 -->
                 <div class="faq-item bg-gray-50 rounded-lg overflow-hidden">
                     <button
@@ -394,7 +400,7 @@
     <!-- Contact Section -->
     <section id="kontak" class="py-16 sm:py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
+            <div class="text-center mb-12 scroll-animate fade-up">
                 <h3 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
                     Hubungi Kami
                 </h3>
@@ -406,7 +412,7 @@
 
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Contact Form -->
-                <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 scroll-animate fade-right">
                     <form id="contact-form" class="space-y-6">
                         <div>
                             <label for="nama" class="block text-sm font-semibold text-gray-700 mb-2">Nama
@@ -428,14 +434,14 @@
                         </div>
 
                         <button type="submit"
-                            class="w-full bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                            class="w-full bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
                             Kirim Pesan
                         </button>
                     </form>
                 </div>
 
                 <!-- Contact Info & Map -->
-                <div class="space-y-6">
+                <div class="space-y-6 scroll-animate fade-left">
                     <div class="bg-white rounded-xl shadow-lg p-8">
                         <h4 class="text-xl font-bold text-gray-800 mb-6">Alamat</h4>
                         <div class="space-y-4 text-gray-600">
@@ -487,7 +493,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <!-- Footer -->
     <div id="footer-placeholder"></div>
 

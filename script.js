@@ -108,15 +108,16 @@ function initApp() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                // Stop observing once visible to prevent re-triggering
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe sections for scroll animations
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        section.classList.add('scroll-animate');
-        observer.observe(section);
+    // Observe sections and elements for scroll animations
+    const animatedElements = document.querySelectorAll('.scroll-animate');
+    animatedElements.forEach(el => {
+        observer.observe(el);
     });
 
     // Active Navigation Highlighting
@@ -207,12 +208,24 @@ function initApp() {
     
     // Highlight current page in navbar
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-link, .mobile-menu a');
-    navLinks.forEach(link => {
+    const navLinksList = document.querySelectorAll('.nav-link, .mobile-menu a');
+    navLinksList.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('text-green-700');
         }
     });
+}
+
+// Loading Screen Logic
+function hideLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.classList.add('hidden');
+        // Remove from DOM after transition
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }
 }
 
 // Main Initialization
@@ -226,7 +239,12 @@ document.addEventListener('DOMContentLoaded', async function () {
     // Initialize app after components are loaded
     initApp();
     
-    // Remove loading class
-    document.body.classList.add('loaded');
+    // Hide loader when everything is ready
+    // Use a small delay to ensure smooth transition
+    setTimeout(hideLoader, 800);
 });
 
+// Fallback: Hide loader if window load takes too long (e.g. slow network)
+window.addEventListener('load', function() {
+    setTimeout(hideLoader, 500);
+});

@@ -8,6 +8,41 @@
 
 body {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Loading Screen */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #15803d; /* Green-700 */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Navbar Dropdown */
@@ -40,32 +75,58 @@ body {
 
 /* Smooth Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-fade-in {
-    animation: fadeIn 1s ease-out;
+@keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in { animation: fadeIn 1s ease-out; }
+.animate-fade-left { animation: fadeLeft 1s ease-out; }
+.animate-fade-right { animation: fadeRight 1s ease-out; }
+.animate-zoom-in { animation: zoomIn 0.8s ease-out; }
+
+/* Scroll Animations */
+.scroll-animate {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.scroll-animate.fade-up { transform: translateY(50px); }
+.scroll-animate.fade-left { transform: translateX(-50px); }
+.scroll-animate.fade-right { transform: translateX(50px); }
+.scroll-animate.zoom-in { transform: scale(0.9); }
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translate(0) scale(1);
 }
 
 /* Card Hover Effects */
 .product-card,
 .service-card,
 .testimonial-card {
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
 }
 
 .product-card:hover,
 .service-card:hover,
 .testimonial-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* FAQ Accordion */
@@ -85,28 +146,15 @@ body {
     padding-top: 0;
 }
 
-/* Scroll Animations */
-.scroll-animate {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.scroll-animate.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* Button Hover Effects */
-button,
-a {
+button, a {
     transition: all 0.3s ease;
 }
 
 /* Form Focus States */
-input:focus,
-textarea:focus {
+input:focus, textarea:focus {
     outline: none;
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.3); /* Green ring */
 }
 
 /* Mobile Menu */
@@ -131,28 +179,20 @@ textarea:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)); /* Slightly darker overlay */
     z-index: 1;
 }
 
-#beranda>* {
+#beranda > * {
     position: relative;
     z-index: 2;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .nav-link {
-        font-size: 0.95rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3 {
-        font-size: 1.75rem;
-    }
+    .nav-link { font-size: 0.95rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.75rem; }
 }
 
 /* Active Navigation Link */
@@ -184,21 +224,4 @@ textarea:focus {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #166534;
-}
-
-/* Loading animation */
-@keyframes pulse {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-}
-
-.pulse {
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
