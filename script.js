@@ -2,6 +2,17 @@
 
 // Component Loader
 async function loadComponent(elementId, componentPath) {
+    // Check if running on file:// protocol
+    if (window.location.protocol === 'file:') {
+        console.error('Error: Fetch API tidak berjalan pada protokol file://. Harap gunakan web server lokal (seperti Laragon, XAMPP, atau Live Server).');
+        // Only show alert once to avoid spamming
+        if (!window.hasShownFileProtocolAlert) {
+            alert('PENTING: Website ini menggunakan komponen dinamis yang memerlukan Web Server.\n\nMohon buka website ini melalui alamat localhost (contoh: http://localhost/tefa) menggunakan Laragon/XAMPP, BUKAN dengan membuka file HTML secara langsung.');
+            window.hasShownFileProtocolAlert = true;
+        }
+        return;
+    }
+
     try {
         const response = await fetch(componentPath);
         if (!response.ok) throw new Error(`Failed to load ${componentPath}`);
