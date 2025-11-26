@@ -18,98 +18,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk & Layanan - Tefa Peternakan Sapi Polije</title>
+    <meta name="description"
+        content="Produk & Layanan TEFA FEEDLOT DAN SAPI PERAH POLITEKNIK NEGERI JEMBER - Kualitas terbaik dari peternakan modern yang mengintegrasikan pendidikan dan teknologi.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 </head>
 
 <body class="font-['Inter'] bg-white text-gray-800">
 
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0">
-                    <a href="index.html">
-                        <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Tefa Peternakan Sapi Polije</h1>
-                    </a>
-                </div>
+    <div id="navbar-placeholder"></div>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html"
-                        class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors">Beranda</a>
-
-                    <!-- Dropdown Profil -->
-                    <div class="relative dropdown-container">
-                        <button
-                            class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors flex items-center">
-                            Profil
-                            <svg class="w-4 h-4 ml-1 transition-transform duration-200" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7"></path>
-                            </svg>
-                        </button>
-                        <div
-                            class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible transition-all duration-200">
-                            <a href="tentang.html"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-t-md">Tentang</a>
-                            <a href="fasilitas.html"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700">Fasilitas</a>
-                            <a href="galeri.html"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-b-md">Galeri</a>
-                        </div>
-                    </div>
-
-                    <a href="produk-layanan.html"
-                        class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors">Produk &
-                        Layanan</a>
-                    <a href="kontak.html"
-                        class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors">Kontak</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-green-700 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <div class="px-4 pt-2 pb-4 space-y-2">
-                <a href="index.html" class="block py-2 text-gray-700 hover:text-green-700 font-medium">Beranda</a>
-
-                <!-- Mobile Dropdown -->
-                <div class="mobile-dropdown">
-                    <button
-                        class="mobile-dropdown-btn w-full text-left py-2 text-gray-700 hover:text-green-700 font-medium flex justify-between items-center">
-                        Profil
-                        <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
-                    </button>
-                    <div class="mobile-dropdown-content hidden pl-4 space-y-2 mt-2">
-                        <a href="tentang.html" class="block py-2 text-sm text-gray-600 hover:text-green-700">Tentang</a>
-                        <a href="fasilitas.html"
-                            class="block py-2 text-sm text-gray-600 hover:text-green-700">Fasilitas</a>
-                        <a href="galeri.html" class="block py-2 text-sm text-gray-600 hover:text-green-700">Galeri</a>
-                    </div>
-                </div>
-
-                <a href="produk-layanan.html" class="block py-2 text-gray-700 hover:text-green-700 font-medium">Produk &
-                    Layanan</a>
-                <a href="kontak.html" class="block py-2 text-gray-700 hover:text-green-700 font-medium">Kontak</a>
-            </div>
-        </div>
-    </nav>
 
     <!-- Page Header / Hero Section -->
     <section class="pt-32 pb-16 sm:pb-20 bg-white">
@@ -323,64 +259,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Column 1 -->
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Peternakan Sapi Polije</h4>
-                    <p class="text-gray-300 mb-4">
-                        Teaching Factory yang berkomitmen pada peternakan, pemberdayaan masyarakat, dan penyediaan
-                        produk peternakan berkualitas.
-                    </p>
-                </div>
+    <div id="footer-placeholder"></div>
 
-                <!-- Column 2 -->
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Tautan</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="tentang.html" class="hover:text-green-400 transition-colors">Tentang</a></li>
-                        <li><a href="produk-layanan.html" class="hover:text-green-400 transition-colors">Produk &
-                                Layanan</a></li>
-                        <li><a href="fasilitas.html" class="hover:text-green-400 transition-colors">Fasilitas</a></li>
-                        <li><a href="galeri.html" class="hover:text-green-400 transition-colors">Galeri</a></li>
-                        <li><a href="kontak.html" class="hover:text-green-400 transition-colors">Kontak</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3 -->
-                <div>
-                    <h4 class="text-xl font-bold mb-4">Hubungi Kami</h4>
-                    <ul class="space-y-2 text-gray-300">
-                        <li>Jl. Mastrip No. 68, Jember</li>
-                        <li>+62 331 333 1234</li>
-                        <li>peternakan@polije.ac.id</li>
-                    </ul>
-
-                    <div class="flex space-x-4 mt-6">
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-green-700 transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 TEFA Peternakan Sapi Polije. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- JavaScript -->
     <script src="script.js"></script>

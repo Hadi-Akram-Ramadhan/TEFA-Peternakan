@@ -1,0 +1,86 @@
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html">
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Tefa Peternakan Sapi Polije</h1>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors">Beranda</a>
+
+                    <!-- Dropdown Profil -->
+                    <div class="relative dropdown-container">
+                        <button
+                            class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors flex items-center">
+                            Profil
+                            <svg class="w-4 h-4 ml-1 transition-transform duration-200" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="dropdown-menu absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg opacity-0 invisible transition-all duration-200">
+                            <a href="tentang.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-t-md">Tentang</a>
+                            <a href="fasilitas.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700">Fasilitas</a>
+                            <a href="galeri.html"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 rounded-b-md">Galeri</a>
+                        </div>
+                    </div>
+
+                    <a href="produk-layanan.html"
+                        class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors">Produk &
+                        Layanan</a>
+                    <a href="kontak.html"
+                        class="nav-link text-gray-700 hover:text-green-700 font-medium transition-colors">Kontak</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-green-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block py-2 text-gray-700 hover:text-green-700 font-medium">Beranda</a>
+
+                <!-- Mobile Dropdown -->
+                <div class="mobile-dropdown">
+                    <button
+                        class="mobile-dropdown-btn w-full text-left py-2 text-gray-700 hover:text-green-700 font-medium flex justify-between items-center">
+                        Profil
+                        <svg class="w-4 h-4 transition-transform duration-200" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div class="mobile-dropdown-content hidden pl-4 space-y-2 mt-2">
+                        <a href="tentang.html" class="block py-2 text-sm text-gray-600 hover:text-green-700">Tentang</a>
+                        <a href="fasilitas.html"
+                            class="block py-2 text-sm text-gray-600 hover:text-green-700">Fasilitas</a>
+                        <a href="galeri.html" class="block py-2 text-sm text-gray-600 hover:text-green-700">Galeri</a>
+                    </div>
+                </div>
+
+                <a href="produk-layanan.html" class="block py-2 text-gray-700 hover:text-green-700 font-medium">Produk &
+                    Layanan</a>
+                <a href="kontak.html" class="block py-2 text-gray-700 hover:text-green-700 font-medium">Kontak</a>
+            </div>
+        </div>
+    </nav>

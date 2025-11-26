@@ -1,7 +1,20 @@
 // TEFA Peternakan Website - Interactive JavaScript
 
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function () {
+// Component Loader
+async function loadComponent(elementId, componentPath) {
+    try {
+        const response = await fetch(componentPath);
+        if (!response.ok) throw new Error(`Failed to load ${componentPath}`);
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+    } catch (error) {
+        console.error('Error loading component:', error);
+    }
+}
+
+// Initialize App Features
+function initApp() {
+    // Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -58,9 +71,10 @@ document.addEventListener('DOMContentLoaded', function () {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href !== '#' && href.length > 1) {
-                e.preventDefault();
+                // Only prevent default if the target exists on the current page
                 const target = document.querySelector(href);
                 if (target) {
+                    e.preventDefault();
                     const navHeight = document.querySelector('nav').offsetHeight;
                     const targetPosition = target.offsetTop - navHeight;
 
@@ -98,18 +112,29 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
+        const nav = document.querySelector('nav');
+
+        // Navbar shadow on scroll
+        if (nav) {
+             if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        }
 
         let current = '';
-        const navHeight = document.querySelector('nav').offsetHeight;
+        if (nav) {
+             const navHeight = nav.offsetHeight;
+             sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 100;
+                const sectionHeight = section.offsetHeight;
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - navHeight - 100;
-            const sectionHeight = section.offsetHeight;
-
-            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+        }
 
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -117,14 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 link.classList.add('active');
             }
         });
-
-        // Navbar shadow on scroll
-        const nav = document.querySelector('nav');
-        if (window.scrollY > 50) {
-            nav.classList.add('shadow-lg');
-        } else {
-            nav.classList.remove('shadow-lg');
-        }
     });
 
     // Contact Form Handling
@@ -176,9 +193,29 @@ document.addEventListener('DOMContentLoaded', function () {
     testimonialCards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.1}s`;
     });
-});
+    
+    // Highlight current page in navbar
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link, .mobile-menu a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('text-green-700');
+        }
+    });
+}
 
-// Add loading class removal
-window.addEventListener('load', function () {
+// Main Initialization
+document.addEventListener('DOMContentLoaded', async function () {
+    // Load components
+    await Promise.all([
+        loadComponent('navbar-placeholder', 'components/navbar.html'),
+        loadComponent('footer-placeholder', 'components/footer.html')
+    ]);
+
+    // Initialize app after components are loaded
+    initApp();
+    
+    // Remove loading class
     document.body.classList.add('loaded');
 });
+
