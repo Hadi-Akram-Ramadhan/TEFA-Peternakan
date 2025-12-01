@@ -14,7 +14,9 @@ async function loadComponent(elementId, componentPath) {
     }
 
     try {
-        const response = await fetch(componentPath);
+        // Add cache-busting parameter to force reload of components
+        const cacheBuster = `?v=${Date.now()}`;
+        const response = await fetch(componentPath + cacheBuster);
         if (!response.ok) throw new Error(`Failed to load ${componentPath}`);
         const html = await response.text();
         document.getElementById(elementId).innerHTML = html;
