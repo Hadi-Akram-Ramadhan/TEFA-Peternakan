@@ -158,7 +158,7 @@ function initApp() {
         });
     });
 
-    // Contact Form Handling
+    // Contact Form Handling with WhatsApp Integration
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
@@ -181,14 +181,27 @@ function initApp() {
                 return;
             }
 
-            // Show success message
-            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+            // Format WhatsApp message
+            const whatsappNumber = '6281387585984'; // Format internasional tanpa +
+            const message = `*Pesan dari Website TEFA*\n\n` +
+                          `*Nama:* ${nama}\n` +
+                          `*Email:* ${email}\n\n` +
+                          `*Pesan:*\n${pesan}`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create WhatsApp URL
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
 
             // Reset form
             contactForm.reset();
 
-            // In a real application, you would send this data to a server
-            console.log('Form submitted:', { nama, email, pesan });
+            // Log for debugging
+            console.log('Pesan dikirim ke WhatsApp:', { nama, email, pesan });
         });
     }
 
